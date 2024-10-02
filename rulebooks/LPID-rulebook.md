@@ -80,9 +80,7 @@ This document uses terminology specified in Regulation (EU) 2024/1183.
 # 2 LPID Issuance process
 
 A generic LPID Issuance process has been described by business registries in the EWC pilot. While different business registries have
-national processes, there is an agreement on the controls that need to be done before issuing an LPID. Those controls and generic steps are described in RFC-005 chapter 3.0 LPID Issuance process:
-
-[RFC-005](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc005-issue-legal-person-identification-data.md)
+national processes, there is an agreement on the controls that need to be done before issuing an LPID. Those controls and generic steps are described in RFC-005 chapter 3.0 LPID Issuance process: [RFC-005](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc005-issue-legal-person-identification-data.md)
 
 # 3 LPID attributes
 
@@ -105,12 +103,12 @@ In the ARF 1.2. the following information for PID Providers is given.
 
 PID Providers are trusted entities responsible to:
 
-   ● verify the identity of the EUDI Wallet User in compliance with LoA
+  > ● verify the identity of the EUDI Wallet User in compliance with LoA
 high requirements,
 
-   ● issue PID to the EUDI Wallet in a harmonised common format and
+  > ● issue PID to the EUDI Wallet in a harmonised common format and
 
-   ● make available information for Relying Parties to verify the validity of the PID.
+  > ● make available information for Relying Parties to verify the validity of the PID.
 
 The LPID SHALL contain the qualified electronic signature or qualified electronic seal of the issuing body and adhere to the legal requirements defined in Annex VII of the Regulation (EU) 2024/1183.
 
@@ -123,22 +121,22 @@ LPID Issuers SHALL follow the LPID requirements and trust mechanisms defined by 
 Authentic Sources that are company registration offices need to accept each other's PUB-EAA attestations according to the regulation.
 Therefore, common legal trust mechanisms need to be stablished in order for the trust ecosystem to be trustworthy:
 
-   ●   The LPID unique identifier SHALL be unique and agreed upon on EU and EES level.
+  > ●   The LPID unique identifier SHALL be unique and agreed upon on EU and EES level.
 
-   ●   There SHALL be one common schema for the LPID which is accepted by all company registries offices.
+  > ●   There SHALL be one common schema for the LPID which is accepted by all company registries offices.
 
-   ●   Only mandatory metadata and attributes SHALL be present in the LPID attestations.
+  > ●   Only mandatory metadata and attributes SHALL be present in the LPID attestations.
 
-   ●   The LPID attestation SHALL be an atomic attestation, i.e. it cannot be enriched with other data, and selective disclosure is not
+  > ●   The LPID attestation SHALL be an atomic attestation, i.e. it cannot be enriched with other data, and selective disclosure is not
     possible.
 
-   ●   The LPID SHALL be in a machine-readable format defined in the ARF during its whole lifecycle.
+  > ●   The LPID SHALL be in a machine-readable format defined in the ARF during its whole lifecycle.
 
-   ●   The LPID SHALL be in a format that can scale to additional/new legal forms.
+  > ●   The LPID SHALL be in a format that can scale to additional/new legal forms.
 
-   ●   The LPID SHALL apply for all legal persons.
+  > ●   The LPID SHALL apply for all legal persons.
 
-   ●   The issuer of the LPID SHALL be responsible for its revocation.
+  > ●   The issuer of the LPID SHALL be responsible for its revocation.
 
 ## 4.2 Trust a signature or seal over a LPID
 
@@ -161,8 +159,8 @@ RFC-005:
 at main · EWC-consortium/eudi-wallet-rfcs ·
 GitHub](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc005-issue-legal-person-identification-data.md)
 
-\[SD-JWT VC\]:
+SD-JWT VC:
 <https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/>
 
-\[OpenID4VP\]:
+OpenID4VP:
 <https://openid.net/specs/openid-4-verifiable-presentations-1_0.html>
