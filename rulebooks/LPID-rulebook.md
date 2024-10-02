@@ -4,46 +4,39 @@
 
 updated 17 September 2024
 
-# Table of Contents {#table-of-contents .TOC-Heading}
+# Table of Contents
 
-[Legal Person Identification Data (LPID) Rulebook
-[1](#legal-person-identification-data-lpid-rulebook)](#legal-person-identification-data-lpid-rulebook)
+[Legal Person Identification Data (LPID) Rulebook]
+(#legal-person-identification-data-lpid-rulebook)
 
-[1 Introduction [2](#introduction)](#introduction)
+1. [Introduction](#introduction)
 
-[1.1 Scope [2](#scope)](#scope)
+1.1 [Scope ](#scope)
 
-[1.2 Background [2](#background)](#background)
+1.2 [Background](#background)
 
-[1.3 Goal of the LPID attestation
-[2](#goal-of-the-lpid-attestation)](#goal-of-the-lpid-attestation)
+1.3 [Goal of the LPID attestation](#goal-of-the-lpid-attestation)
 
-[1.4 Key words [2](#key-words)](#key-words)
+1.4 [Key words](#key-words)
 
-[1.5 Terminology [2](#terminology)](#terminology)
+1.5 [Terminology](#terminology)
 
-[2 LPID Issuance process
-[3](#lpid-issuance-process)](#lpid-issuance-process)
+2 [LPID Issuance process](#lpid-issuance-process)
 
-[3 LPID attributes [3](#lpid-attributes)](#lpid-attributes)
+3 [LPID attributes](#lpid-attributes)
 
-[4 Trust infrastructure details
-[3](#trust-infrastructure-details)](#trust-infrastructure-details)
+4 [Trust infrastructure details](#trust-infrastructure-details)
 
-[4.1 Trust requirements on the LPID attestation from the perspective of
-company registration offices as authentic sources for the LPID
-[3](#trust-requirements-on-the-lpid-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-lpid)](#trust-requirements-on-the-lpid-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-lpid)
+4.1 [Trust requirements on the LPID attestation from the perspective of
+company registration offices as authentic sources for the LPID](#trust-requirements-on-the-lpid-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-lpid)
 
-[4.2 Trust a signature or seal over a LPID
-[4](#trust-a-signature-or-seal-over-a-lpid)](#trust-a-signature-or-seal-over-a-lpid)
+4.2 [Trust a signature or seal over a LPID](#trust-a-signature-or-seal-over-a-lpid)
 
-[4.3 LPID Provider Trusted List
-[4](#lpid-provider-trusted-list)](#lpid-provider-trusted-list)
+4.3 [LPID Provider Trusted List](#lpid-provider-trusted-list)
 
-[4.4 SD-JWT-compliant PIDs
-[4](#sd-jwt-compliant-pids)](#sd-jwt-compliant-pids)
+4.4 [SD-JWT-compliant PIDs](#sd-jwt-compliant-pids)
 
-[5 References [4](#references)](#references)
+5 [References](#references)
 
 # 1 Introduction
 
