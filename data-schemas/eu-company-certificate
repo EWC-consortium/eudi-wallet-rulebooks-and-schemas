@@ -1,0 +1,342 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EWC - EU Company Certificate",
+  "description": "Schema for EU Company Certificate -  EWC WP3",
+  "type": "object",
+  "properties": {
+    "issuing_authority": {
+      "description": "Name of issuer from the MS that issued the credential",
+      "type": "string"
+    },
+    "issuing_authority_id": {
+      "description": "EUID of the issuing authority. (Business register identifier for BRIS)",
+      "type": "string"
+    },
+    "issuing_country": {
+      "description": "Alpha-2 country code, as defined in ISO 3166-1, of the issuing country or territory.",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2
+    },
+    "issuing_jurisdiction": {
+      "description": "As defined in ISO 3166-2:2020, of the issuing country or territory.",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 6
+    },
+    "issuance_date": {
+      "description": "Date and possibly time of issuance",
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiry_date": {
+      "description": "Date and possibly time of credential expiration",
+      "type": "string",
+      "format": "date-time"
+    },
+    "authentic_source_id": {
+      "description": "LPID Id of the issuing authority. (Business register identifier for BRIS)",
+      "type": "string"
+    },
+    "authentic_source_name": {
+      "description": "Name of issuer from the MS that issued the credential",
+      "type": "string"
+    },
+    "credentialSubject": {
+      "description": "Attributes representing a Legal Entity",
+      "type": "object",
+      "properties": {
+        "legalRepresentative": {
+          "description": "Information about any person authorized by the company to represent it alone or jointly",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/legalRepresentative.physicalPerson"
+              },
+              {
+                "$ref": "#/$defs/legalRepresentative.legalPerson"
+              }
+            ]
+          }
+        },
+        "legalEntity": {
+          "type": "object",
+          "properties": {
+            "legalName": {
+              "description": "Legal person official name as in LPID",
+              "type": "string"
+            },
+            "legalFormType": {
+              "description": "Legal form of the company",
+              "type": "string"
+            },
+            "legalIdentifier": {
+              "description": "National registration number of the company",
+              "type": "string"
+            },
+            "identifier": {
+              "description": "EUID of the company",
+              "type": "string"
+            },
+            "registrationMemberState": {
+              "description": "Member State where the company is registered, Alpha-2 country code, as defined in ISO 3166-1",
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 2
+            },
+            "registeredAddress": {
+              "description": "Registered office of the company (full address or part of it)",
+              "type": "object",
+              "properties": {
+                "careOf": {
+                  "title": "Care Of",
+                  "description": "Used when an address is at the address of another person or legal entity.",
+                  "type": "string"
+                },
+                "fullAddress": {
+                  "title": "Full Address",
+                  "description": "The complete address written as a string, separated with \";\".",
+                  "type": "string"
+                },
+                "thoroughfare": {
+                  "title": "Thoroughfare",
+                  "description": "The name of a passage or way through from one location to another.",
+                  "type": "string"
+                },
+                "locatorDesignator": {
+                  "title": "Locator Designator",
+                  "description": "A number or a sequence of characters that uniquely identifies the locator within the relevant scope.",
+                  "type": "string"
+                },
+                "postCode": {
+                  "title": "Post Code",
+                  "description": "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.",
+                  "type": "string"
+                },
+                "postName": {
+                  "title": "Post Name",
+                  "description": "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.",
+                  "type": "string"
+                },
+                "postOfficeBox": {
+                  "title": "Post Office Box",
+                  "description": "A location designator for a postal delivery point at a post office, usually a number.",
+                  "type": "string"
+                },
+                "locatorName": {
+                  "title": "Locator Name",
+                  "description": "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building.",
+                  "type": "string"
+                },
+                "adminUnitLevel1": {
+                  "title": "Admin Unit Level 1",
+                  "description": "The uppermost administrative unit for the address, almost always a country.",
+                  "type": "string"
+                },
+                "adminUnitLevel2": {
+                  "title": "Admin Unit Level 2",
+                  "description": "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fullAddress"
+              ]
+            },
+            "registrationDate": {
+              "description": "Date of registration of the company",
+              "type": "string",
+              "format": "date"
+            },
+            "shareCapital": {
+              "description": "Amount of the capital subscribed with currency",
+              "type": "string"
+            },
+            "legalEntityStatus": {
+              "description": "Status of the company as defined in national law and where recorded in the national register",
+              "type": "string",
+              "enum": [
+                "active",
+                "inactive"
+              ]
+            },
+            "legalEntityActivity": {
+              "description": "Object of the company describing its main activity or activities, which must be expressed using the Statistical Classification of Economic Activities in the European Community (NACE)",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "description": "Legal entity activity NACE code",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Short description of the legal entity activity",
+                  "type": "string"
+                }
+              }
+            },
+            "legalEntityDuration": {
+              "description": "Duration of the company, where its duration is limited",
+              "type": "string"
+            },
+            "contactPoint": {
+              "description": "Correspondence address of the company, such as electronic mail or postal address (full or partial)",
+              "type": "object",
+              "properties": {
+                "contactPage": {
+                  "description": "Details of the company website",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "contactTelephone": {
+                  "description": "Details of the company phone",
+                  "type": "string"
+                },
+                "contactEmail": {
+                  "description": "Details of the company email",
+                  "type": "string",
+                  "format": "email"
+                }
+              }
+            }
+          },
+          "required": [
+            "legalName",
+            "legalFormType",
+            "legalIdentifier",
+            "identifier",
+            "registrationMemberState",
+            "registeredAddress",
+            "registrationDate",
+            "legalEntityStatus",
+            "legalEntityActivity"
+          ]
+        }
+      },
+      "required": [
+        "legalRepresentative",
+        "legalEntity"
+      ]
+    },
+    "credentialStatus": {
+      "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Exact identity for the credential status",
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "description": "Defines the revocation type extension",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    },
+    "credentialSchema": {
+      "description": "One or more schemas that validate the Verifiable Credential.",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/credentialSchema"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/credentialSchema"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "credentialSubject",
+    "credentialStatus",
+    "credentialSchema",
+    "issuing_authority",
+    "issuing_authority_id",
+    "issuing_country",
+    "issuance_date",
+    "expiry_date",
+    "authentic_source_id",
+    "authentic_source_name"
+  ],
+  "$defs": {
+    "credentialSchema": {
+      "description": "Contains information about the credential schema on which the issued credential is based",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "References the credential schema stored on the Trusted Schemas Registry (TSR) on which the Verifiable Authorisation is based on",
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "description": "Defines credential schema type",
+          "type": "string",
+          "enum": [
+            "FullJsonSchemaValidator2021"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    },
+    "legalRepresentative.physicalPerson": {
+      "description": "Details about the representative of the company if incarnated by a physical person",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "description": "Full name of the physical person representing the company ",
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "description": "Date of birth of the physical person representing the company",
+          "type": "string",
+          "format": "date"
+        },
+        "signatoryRule": {
+          "description": "Information if the representative can engage the company alone or jointly",
+          "type": "string",
+          "enum": [
+            "alone",
+            "joint"
+          ]
+        }
+      },
+      "required": [
+        "fullName",
+        "dateOfBirth",
+        "signatoryRule"
+      ]
+    },
+    "legalRepresentative.legalPerson": {
+      "description": "Details about the representative of the company if incarnated by a legal person",
+      "type": "object",
+      "properties": {
+        "legalName": {
+          "description": "Registered name of the legal person representing the company",
+          "type": "string"
+        },
+        "legalFormType": {
+          "description": "Form type of the legal person representing the company",
+          "type": "string"
+        },
+        "identifier": {
+          "description": "EUID of the legal person representing the company",
+          "type": "string"
+        }
+      },
+      "required": [
+        "legalName",
+        "legalFormType",
+        "identifier"
+      ]
+    }
+  }
+}
