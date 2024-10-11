@@ -1,0 +1,252 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EWC - Signatory Rights",
+  "description": "Schema for Signatory Rights -  EWC WP3",
+  "type": "object",
+  "properties": {
+    "issuing_authority": {
+      "description": "Name of issuer from the MS that issued the credential",
+      "type": "string"
+    },
+    "issuing_authority_id": {
+      "description": "EUID of the issuing authority. (Business register identifier for BRIS)",
+      "type": "string"
+    },
+    "issuing_country": {
+      "description": "Alpha-2 country code, as defined in ISO 3166-1, of the issuing country or territory.",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2
+    },
+    "issuing_jurisdiction": {
+      "description": "As defined in ISO 3166-2:2020, of the issuing country or territory.",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 6
+    },
+    "issuance_date": {
+      "description": "Date and possibly time of issuance",
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiry_date": {
+      "description": "Date and possibly time of credential expiration",
+      "type": "string",
+      "format": "date-time"
+    },
+    "authentic_source_id": {
+      "description": "LPID Id of the issuing authority. (Business register identifier for BRIS)",
+      "type": "string"
+    },
+    "authentic_source_name": {
+      "description": "Name of issuer from the MS that issued the credential",
+      "type": "string"
+    },
+    "credentialSubject": {
+      "description": "Attributes describing the legal representation of a legal entity",
+      "type": "object",
+      "properties": {
+        "legalEntity": {
+          "type": "object",
+          "properties": {
+            "legalName": {
+              "description": "Legal person official name as in LPID",
+              "type": "string"
+            },
+            "legalIdentifier": {
+              "description": "National registration number of the company",
+              "type": "string"
+            },
+            "identifier": {
+              "description": "EUID of the company",
+              "type": "string"
+            }
+          },
+          "required": [
+            "legalName",
+            "legalIdentifier",
+            "identifier"
+          ]
+        },
+        "signatoryRule": {
+              "description": "Information if the representative can engage the company alone or jointly",
+              "type": "string",
+              "enum": [
+                "alone"
+              ]
+            },    
+        "signatoryRights": {
+          "description": "Information about the person and its signatory right about the legal entity",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/signatoryRights.heldByPerson"
+              },
+              {
+                "$ref": "#/$defs/signatoryRights.HeldBylegalPerson"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "legalEntity",
+        "signatoryRights",
+        "signatoryRule"
+      ]
+    },
+    "credentialStatus": {
+      "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Exact identity for the credential status",
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "description": "Defines the revocation type extension",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    },
+    "credentialSchema": {
+      "description": "One or more schemas that validate the Verifiable Credential.",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/credentialSchema"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/credentialSchema"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "credentialSubject",
+    "credentialStatus",
+    "credentialSchema",
+    "issuing_authority",
+    "issuing_authority_id",
+    "issuing_country",
+    "issuance_date",
+    "expiry_date",
+    "authentic_source_id",
+    "authentic_source_name"
+  ],
+  "$defs": {
+    "credentialSchema": {
+      "description": "Contains information about the credential schema on which the issued credential is based",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "References the credential schema stored on the Trusted Schemas Registry (TSR) on which the Verifiable Authorisation is based on",
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "description": "Defines credential schema type",
+          "type": "string",
+          "enum": [
+            "FullJsonSchemaValidator2021"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    },
+    "signatoryRights.heldByPerson": {
+      "description": "Details about the signatory of the company and his right if incarnated by a physical person",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "description": "Full name of the physical person representing the company ",
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "description": "Date of birth of the physical person representing the company",
+          "type": "string",
+          "format": "date"
+        },
+        "post": {
+          "description": "Role of the person",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "Code of the post of the person",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name of the post of the person as registered",
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "fullName",
+        "dateOfBirth"
+      ]
+    },
+    "signatoryRights.HeldBylegalPerson": {
+      "description": "Details about the representative of the company and its right if incarnated by a legal person",
+      "type": "object",
+      "properties": {
+        "legalName": {
+          "description": "Registered name of the legal person representing the company",
+          "type": "string"
+        },
+        "legalIdentifier": {
+          "description": "National registration number of the company",
+          "type": "string"
+        },
+        "identifier": {
+          "description": "EUID of the legal person representing the company",
+          "type": "string"
+        },
+        "post": {
+          "description": "Role of the person",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "Code of the post of the person",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name of the post of the person as registered",
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name"
+          ]
+          }
+      },
+      "required": [
+        "legalName",
+        "legalIdentifier",
+        "post",
+        "identifier"
+      ]
+    }
+  }
+}
