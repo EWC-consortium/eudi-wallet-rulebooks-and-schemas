@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "issuing_authority": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the administrative authority that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
       "type": "string"
     },
     "issuing_authority_id": {
@@ -35,11 +35,11 @@
       "format": "date-time"
     },
     "authentic_source_id": {
-      "description": "LPID Id of the issuing authority. (Business register identifier for BRIS)",
+      "description": "EUID for the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "authentic_source_name": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "credentialSubject": {
@@ -187,10 +187,6 @@
                   "description": "Details of the company website",
                   "type": "string",
                   "format": "uri"
-                },
-                "contactTelephone": {
-                  "description": "Details of the company phone",
-                  "type": "string"
                 },
                 "contactEmail": {
                   "description": "Details of the company email",
