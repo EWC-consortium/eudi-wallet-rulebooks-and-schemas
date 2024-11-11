@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "scope": {
+        "type": "string",
+        "enum": ["PID"]
+      },
+      "claims": {
+        "type": "object",
+        "properties": {
+          "given_name": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "family_name": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "birth_date": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "age_over_18": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "issuance_date": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "expiry_date": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "issuing_authority": {
+            "$ref": "#/definitions/displayObject"
+          },
+          "issuing_country": {
+            "$ref": "#/definitions/displayObject"
+          }
+        },
+        "required": [
+          "given_name",
+          "family_name",
+          "birth_date",
+          "age_over_18",
+          "issuance_date",
+          "expiry_date",
+          "issuing_authority",
+          "issuing_country"
+        ]
+      },
+      "cryptographic_binding_methods_supported": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "display": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "locale": { "type": "string" },
+            "background_color": { "type": "string" },
+            "text_color": { "type": "string" },
+            "logo": {
+              "type": "object",
+              "properties": {
+                "uri": { "type": "string", "format": "uri" },
+                "alt_text": { "type": "string" }
+              },
+              "required": ["uri", "alt_text"]
+            }
+          },
+          "required": ["name", "locale", "background_color", "text_color", "logo"]
+        }
+      },
+      "credential_signing_alg_values_supported": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "format": {
+        "type": "string",
+        "enum": ["vc+sd-jwt"]
+      },
+      "vct": {
+        "type": "string",
+        "enum": ["VerifiablePIDSDJWT"]
+      },
+      "proof_types_supported": {
+        "type": "object",
+        "properties": {
+          "jwt": {
+            "type": "object",
+            "properties": {
+              "proof_signing_alg_values_supported": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["proof_signing_alg_values_supported"]
+          }
+        },
+        "required": ["jwt"]
+      }
+    },
+    "required": [
+      "scope",
+      "claims",
+      "cryptographic_binding_methods_supported",
+      "display",
+      "credential_signing_alg_values_supported",
+      "format",
+      "vct",
+      "proof_types_supported"
+    ],
+    "definitions": {
+      "displayObject": {
+        "type": "object",
+        "properties": {
+          "display": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "locale": { "type": "string" }
+              },
+              "required": ["name", "locale"]
+            }
+          }
+        },
+        "required": ["display"]
+      }
+    }
+  }
+  
