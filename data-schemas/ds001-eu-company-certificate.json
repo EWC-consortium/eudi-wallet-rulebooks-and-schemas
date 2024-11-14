@@ -203,7 +203,7 @@
           "description": "Information about any person authorized by the company to represent it alone or jointly",
           "type": "array",
           "items": {
-            "anyOf": [
+            "oneOf": [
               {
                 "$ref": "#/$defs/legalRepresentative.physicalPerson"
               },
