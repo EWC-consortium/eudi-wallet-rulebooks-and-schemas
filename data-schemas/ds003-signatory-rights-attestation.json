@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "issuing_authority": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the administrative authority that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
       "type": "string"
     },
     "issuing_authority_id": {
@@ -35,11 +35,11 @@
       "format": "date-time"
     },
     "authentic_source_id": {
-      "description": "LPID Id of the issuing authority. (Business register identifier for BRIS)",
+      "description": "EUID for the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "authentic_source_name": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "credentialSubject": {
@@ -67,14 +67,7 @@
             "legalIdentifier",
             "identifier"
           ]
-        },
-        "signatoryRule": {
-              "description": "Information if the representative can engage the company alone or jointly",
-              "type": "string",
-              "enum": [
-                "alone"
-              ]
-            },    
+        },   
         "signatoryRights": {
           "description": "Information about the person and its signatory right about the legal entity",
           "type": "array",
@@ -92,8 +85,7 @@
       },
       "required": [
         "legalEntity",
-        "signatoryRights",
-        "signatoryRule"
+        "signatoryRights"
       ]
     },
     "credentialStatus": {
@@ -178,6 +170,13 @@
           "type": "string",
           "format": "date"
         },
+        "signatoryRule": {
+              "description": "Information if the signatory can engage the company alone or jointly",
+              "type": "string",
+              "enum": [
+                "alone"
+              ]
+            },
         "post": {
           "description": "Role of the person",
           "type": "array",
@@ -201,7 +200,9 @@
       },
       "required": [
         "fullName",
-        "dateOfBirth"
+        "dateOfBirth",
+        "signatoryRule",
+        "post"
       ]
     },
     "signatoryRights.HeldBylegalPerson": {
@@ -219,6 +220,13 @@
         "identifier": {
           "description": "EUID of the legal person representing the company",
           "type": "string"
+        },
+        "signatoryRule": {
+          "description": "Information if the signatory can engage the company alone or jointly",
+          "type": "string",
+          "enum": [
+            "alone"
+            ]
         },
         "post": {
           "description": "Role of the person",
@@ -244,6 +252,7 @@
       "required": [
         "legalName",
         "legalIdentifier",
+        "signatoryRule",
         "post",
         "identifier"
       ]
