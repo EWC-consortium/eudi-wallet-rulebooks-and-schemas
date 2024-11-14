@@ -46,20 +46,6 @@
       "description": "Attributes representing a Legal Entity",
       "type": "object",
       "properties": {
-        "legalRepresentative": {
-          "description": "Information about any person authorized by the company to represent it alone or jointly",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/legalRepresentative.physicalPerson"
-              },
-              {
-                "$ref": "#/$defs/legalRepresentative.legalPerson"
-              }
-            ]
-          }
-        },
         "legalEntity": {
           "type": "object",
           "properties": {
@@ -213,9 +199,23 @@
           ]
         }
       },
+        "legalRepresentative": {
+          "description": "Information about any person authorized by the company to represent it alone or jointly",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/legalRepresentative.physicalPerson"
+              },
+              {
+                "$ref": "#/$defs/legalRepresentative.legalPerson"
+              }
+            ]
+          }
+        },
       "required": [
-        "legalRepresentative",
-        "legalEntity"
+        "legalEntity",
+        "legalRepresentative"
       ]
     },
     "credentialStatus": {
