@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "issuing_authority": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the public sector body or private entity that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
       "type": "string"
     },
     "issuing_authority_id": {
@@ -19,7 +19,7 @@
       "maxLength": 2
     },
     "issuing_jurisdiction": {
-      "description": "As defined in ISO 3166-2:2020, of the issuing country or territory.",
+      "description": "Country subdivision code of the jurisdiction that issued the credential instance, as defined in ISO 3166-2:2020, Clause 8. The first part of the code SHALL be the same as the value for issuing_country.",
       "type": "string",
       "minLength": 2,
       "maxLength": 6
@@ -35,111 +35,110 @@
       "format": "date-time"
     },
     "authentic_source_id": {
-      "description": "LPID Id of the issuing authority. (Business register identifier for BRIS)",
+      "description": "EUID for the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "authentic_source_name": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "credentialSubject": {
       "description": "Attributes representing a Legal Entity",
       "type": "object",
       "properties": {
-        "legalEntity": {
+        "legal_person": {
           "type": "object",
           "properties": {
-            "legalName": {
-              "description": "Legal person official name as in LPID",
+            "legal_person_name": {
+              "description": "Official current legal person name as registered in the business register.",
               "type": "string"
             },
-            "legalFormType": {
+            "legal_person_id": {
+              "description": "Unique id for organisations in EUID structure",
+              "type": "string"
+            },
+            "legal_form_type": {
               "description": "Legal form of the company",
               "type": "string"
             },
-            "legalIdentifier": {
-              "description": "National registration number of the company",
-              "type": "string"
-            },
-            "identifier": {
-              "description": "EUID of the company",
-              "type": "string"
-            },
-            "registrationMemberState": {
+            "registration_member_state": {
               "description": "Member State where the company is registered, Alpha-2 country code, as defined in ISO 3166-1",
               "type": "string",
               "minLength": 2,
               "maxLength": 2
             },
-            "registeredAddress": {
+            "registered_address": {
               "description": "Registered office of the company (full address or part of it)",
               "type": "object",
               "properties": {
-                "careOf": {
-                  "title": "Care Of",
+                "care_of": {
                   "description": "Used when an address is at the address of another person or legal entity.",
                   "type": "string"
                 },
-                "fullAddress": {
-                  "title": "Full Address",
+                "full_address": {
                   "description": "The complete address written as a string, separated with \";\".",
                   "type": "string"
                 },
-                "thoroughfare": {
+                "thorough_fare": {
                   "title": "Thoroughfare",
                   "description": "The name of a passage or way through from one location to another.",
                   "type": "string"
                 },
-                "locatorDesignator": {
-                  "title": "Locator Designator",
+                "locator_designator": {
                   "description": "A number or a sequence of characters that uniquely identifies the locator within the relevant scope.",
                   "type": "string"
                 },
-                "postCode": {
-                  "title": "Post Code",
+                "post_code": {
                   "description": "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.",
                   "type": "string"
                 },
-                "postName": {
-                  "title": "Post Name",
+                "post_name": {
                   "description": "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.",
                   "type": "string"
                 },
-                "postOfficeBox": {
-                  "title": "Post Office Box",
+                "post_office_box": {
                   "description": "A location designator for a postal delivery point at a post office, usually a number.",
                   "type": "string"
                 },
-                "locatorName": {
-                  "title": "Locator Name",
+                "locator_name": {
                   "description": "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building.",
                   "type": "string"
                 },
-                "adminUnitLevel1": {
-                  "title": "Admin Unit Level 1",
+                "admin_unit_level_1": {
                   "description": "The uppermost administrative unit for the address, almost always a country.",
                   "type": "string"
                 },
-                "adminUnitLevel2": {
-                  "title": "Admin Unit Level 2",
+                "admin_unit_level_2": {
                   "description": "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.",
                   "type": "string"
                 }
               },
               "required": [
-                "fullAddress"
+                "full_address"
               ]
             },
-            "registrationDate": {
+            "registration_date": {
               "description": "Date of registration of the company",
               "type": "string",
               "format": "date"
             },
-            "shareCapital": {
+            "share_capital": {
               "description": "Amount of the capital subscribed with currency",
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "description": "Amount of the capital suscribed",
+                  "type": "string"
+                },
+                "currency": {
+                  "description": "Currency code used of the capital subscribed, as defined in ISO 4217:2015",
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 3
+                }
+              }
             },
-            "legalEntityStatus": {
+            "legal_entity_status": {
               "description": "Status of the company as defined in national law and where recorded in the national register",
               "type": "string",
               "enum": [
@@ -147,7 +146,7 @@
                 "inactive"
               ]
             },
-            "legalEntityActivity": {
+            "legal_entity_activity": {
               "description": "Object of the company describing its main activity or activities, which must be expressed using the Statistical Classification of Economic Activities in the European Community (NACE)",
               "type": "object",
               "properties": {
@@ -161,24 +160,25 @@
                 }
               }
             },
-            "legalEntityDuration": {
+            "legal_entity_duration": {
               "description": "Duration of the company, where its duration is limited",
-              "type": "string"
+              "type": "string",
+              "format": "date"
             },
-            "contactPoint": {
+            "contact_point": {
               "description": "Correspondence address of the company, such as electronic mail or postal address (full or partial)",
               "type": "object",
               "properties": {
-                "contactPage": {
+                "contact_page": {
                   "description": "Details of the company website",
                   "type": "string",
                   "format": "uri"
                 },
-                "contactTelephone": {
+                "contact_telephone": {
                   "description": "Details of the company phone",
                   "type": "string"
                 },
-                "contactEmail": {
+                "contact_email": {
                   "description": "Details of the company email",
                   "type": "string",
                   "format": "email"
@@ -187,35 +187,34 @@
             }
           },
           "required": [
-            "legalName",
-            "legalFormType",
-            "legalIdentifier",
-            "identifier",
-            "registrationMemberState",
-            "registeredAddress",
-            "registrationDate",
-            "legalEntityStatus",
-            "legalEntityActivity"
+            "legal_person_name",
+            "legal_person_id",
+            "legal_form_type",
+            "registration_member_state",
+            "registered_address",
+            "registration_date",
+            "legal_entity_status",
+            "legal_entity_activity"
           ]
         }
       },
-        "legalRepresentative": {
+        "legal_representative": {
           "description": "Information about any person authorized by the company to represent it alone or jointly",
           "type": "array",
           "items": {
             "oneOf": [
               {
-                "$ref": "#/$defs/legalRepresentative.physicalPerson"
+                "$ref": "#/$defs/legal_representative.physical_person"
               },
               {
-                "$ref": "#/$defs/legalRepresentative.legalPerson"
+                "$ref": "#/$defs/legal_representative.legal_person"
               }
             ]
           }
         },
       "required": [
-        "legalEntity",
-        "legalRepresentative"
+        "legal_entity",
+        "legal_representative"
       ]
     },
     "credentialStatus": {
@@ -287,20 +286,24 @@
         "type"
       ]
     },
-    "legalRepresentative.physicalPerson": {
+    "legal_representative.physical_person": {
       "description": "Details about the representative of the company if incarnated by a physical person",
       "type": "object",
       "properties": {
-        "fullName": {
+        "full_name": {
           "description": "Full name of the physical person representing the company ",
           "type": "string"
         },
-        "dateOfBirth": {
+        "date_of_birth": {
           "description": "Date of birth of the physical person representing the company",
           "type": "string",
           "format": "date"
         },
-        "signatoryRule": {
+        "nationality": {
+          "description": "Nationality of the physical person representing the company",
+          "type": "string",
+        },
+        "signatory_rule": {
           "description": "Information if the representative can engage the company alone or jointly",
           "type": "string",
           "enum": [
@@ -310,32 +313,32 @@
         }
       },
       "required": [
-        "fullName",
-        "dateOfBirth",
-        "signatoryRule"
+        "full_name",
+        "date_of_birth",
+        "signatory_rule"
       ]
     },
-    "legalRepresentative.legalPerson": {
+    "legal_representative.legal_person": {
       "description": "Details about the representative of the company if incarnated by a legal person",
       "type": "object",
       "properties": {
-        "legalName": {
-          "description": "Registered name of the legal person representing the company",
-          "type": "string"
-        },
-        "legalFormType": {
-          "description": "Form type of the legal person representing the company",
-          "type": "string"
-        },
-        "identifier": {
-          "description": "EUID of the legal person representing the company",
-          "type": "string"
+        "legal_person_name": {
+              "description": "Official current legal person name as registered in the business register.",
+              "type": "string"
+            },
+            "legal_person_id": {
+              "description": "Unique id for organisations in EUID structure",
+              "type": "string"
+            },
+            "legal_form_type": {
+              "description": "Legal form of the company",
+              "type": "string"
         }
       },
       "required": [
-        "legalName",
-        "legalFormType",
-        "identifier"
+        "legal_person_name",
+        "legal_person_id",
+        "legal_form_type"
       ]
     }
   }
