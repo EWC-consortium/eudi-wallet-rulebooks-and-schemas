@@ -301,7 +301,7 @@
         },
         "nationality": {
           "description": "Nationality of the physical person representing the company",
-          "type": "string",
+          "type": "string"
         },
         "signatory_rule": {
           "description": "Information if the representative can engage the company alone or jointly",
