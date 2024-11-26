@@ -8,11 +8,21 @@ Authors are encouraged to create new rulebooks or data schemas and commit to the
 
 Here is the list of all Rulebooks defined and used within the EWC scope and their status. 
 
-| **Rulebook #** | **Rulebook Title**                                                                           |**Status (Under Development/Appoved)**|
-| -------------|----------------------------------------------------------------------------------------------| -------------------------------------|
-| RB-001       | [Legal Person Identification Data (LPID) Rulebook](rb001-legal-person-identification-data.md)|                                      |
+| **Rulebook #** | **Rulebook Title**                                                                           |**Status (Under Development/Approved)**|
+| ---------------|----------------------------------------------------------------------------------------------|---------------------------------------|
+| RB-001         | [Legal Person Identification Data (LPID) Rulebook](rb001-legal-person-identification-data.md)|                                       |
 
 ## Data Schemas
+
+Here is the list of all Data Schemas defined and used within the EWC scope and their status. 
+
+| **Data Schemas #** | **Data Schemas Title**                                     |**Status (Under Development/Approved)**|
+| -------------------|------------------------------------------------------------|---------------------------------------|
+| DS-001             | [EU Company Certificate](ds001-eu-company-certificate.json)|                                       |
+| DS-002             | [IBAN attesatation](ds002-iban-attestation.json)           |                                       |
+| DS-003             | [Signatory Rights](ds003-signatory-rights-attestation.json)|                                       |
+| DS-004             | [Legal PID](ds004-legal-person-identification-data.json)   |                                       |
+| DS-005             | [Photo ID](ds005-photo-id-travel-document.json)            |                                       |
 
 ## Naming Conventions
 
