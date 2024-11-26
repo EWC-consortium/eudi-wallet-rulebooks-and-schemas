@@ -8,8 +8,8 @@ Authors are encouraged to create new rulebooks or data schemas and commit to the
 
 Here is the list of all Rulebooks defined and used within the EWC scope and their status. 
 
-| **Rulebook** | **Rulebook Title**                                                                           |**Status (Under Developmnet/Appoved)**|
-| ------------------------------------------------------------------------------------------------------------| -------------------------------------|
+| **Rulebook #** | **Rulebook Title**                                                                           |**Status (Under Development/Appoved)**|
+| -------------|----------------------------------------------------------------------------------------------| -------------------------------------|
 | RB-001       | [Legal Person Identification Data (LPID) Rulebook](rb001-legal-person-identification-data.md)|                                      |
 
 ## Data Schemas
