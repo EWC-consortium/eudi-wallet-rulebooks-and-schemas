@@ -4,6 +4,16 @@ This repository contains all rulebooks and data schemas utilised in the EWC Larg
 
 Authors are encouraged to create new rulebooks or data schemas and commit to them in a separate branch. Once agreed upon within your WP, raise a PR to merge to the main branch. 
 
+## Rulebooks
+
+Here is the list of all Rulebooks defined and used within the EWC scope and their status. 
+
+| **Rulebook** | **Rulebook Title**                                                                           |**Status (Under Developmnet/Appoved)**|
+| ------------------------------------------------------------------------------------------------------------| -------------------------------------|
+| RB-001       | [Legal Person Identification Data (LPID) Rulebook](rb001-legal-person-identification-data.md)|                                      |
+
+## Data Schemas
+
 ## Naming Conventions
 
 ### Rulebook
