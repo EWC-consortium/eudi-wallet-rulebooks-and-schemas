@@ -176,7 +176,7 @@
         },
         "administrative_number": {
           "title": "Administrative Number",
-          "description": "Administrative number associated with the person.",
+          "description": "A number assigned by the Photo ID holder issuer for audit control or other purposes.",
           "type": "string"
         },
         "resident_street": {
