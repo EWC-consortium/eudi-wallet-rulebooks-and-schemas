@@ -1,4 +1,4 @@
-# EUCC
+# EU Company Certificate Data Rulebook
 
 ## Table of Contents
 
