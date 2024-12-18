@@ -204,7 +204,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/$defs/legal_representative.physical_person"
+                "$ref": "#/$defs/legal_representative.natural_person"
               },
               {
                 "$ref": "#/$defs/legal_representative.legal_person"
@@ -286,21 +286,21 @@
         "type"
       ]
     },
-    "legal_representative.physical_person": {
-      "description": "Details about the representative of the company if incarnated by a physical person",
+    "legal_representative.natural_person": {
+      "description": "Details about the representative of the company if incarnated by a natural person",
       "type": "object",
       "properties": {
         "full_name": {
-          "description": "Full name of the physical person representing the company ",
+          "description": "Full name of the natural person representing the company ",
           "type": "string"
         },
         "date_of_birth": {
-          "description": "Date of birth of the physical person representing the company",
+          "description": "Date of birth of the natural person representing the company",
           "type": "string",
           "format": "date"
         },
         "nationality": {
-          "description": "Nationality of the physical person representing the company",
+          "description": "Nationality of the natural person representing the company",
           "type": "string"
         },
         "signatory_rule": {
