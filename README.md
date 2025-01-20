@@ -11,6 +11,7 @@ Here is the list of all Rulebooks defined and used within the EWC scope and thei
 | **Rulebook #** | **Rulebook Title**                                                                                      |**Status (Under Development/Approved)**|
 | ---------------|---------------------------------------------------------------------------------------------------------|---------------------------------------|
 | RB-001         | [Legal Person Identification Data (LPID) Rulebook](/rulebooks/rb001-legal-person-identification-data.md)|                                       |
+| RB-004         | [Identity Rulebook](/rulebooks/rb004-identity.md)|                                       |
 
 ## Data Schemas
 
@@ -23,6 +24,7 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)|Under Development                      |
 | DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)   |Under Development                      |
 | DS-005             | [Photo ID](/data-schemas/ds005-photo-id-travel-document.json)            |                                       |
+| DS-006             | [Identity](/data-schemas/ds006-identity.json)            |                                       |
 
 ## Naming Conventions
 

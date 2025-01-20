@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Identity",
+  "description": "Verifiable Credential for a Identity attestation.",
+  "type": "object",
+  "required": [
+    "credentialSubject",
+    "documentInfo",
+    "iss",
+    "iat",
+    "vct"
+  ],
+  "properties": {
+    "credentialSubject": {
+      "title": "Credential Subject",
+      "description": "Credential Subject according to PID schema",
+      "type": "object",
+      "properties":{  
+        "family_name":{  
+           "type":"string"
+        },
+        "given_name":{  
+           "type":"string"
+        },
+        "birth_date":{  
+           "type":"string"      
+        },
+        "birth_place":{  
+           "type":"string"      
+        },
+        "nationality":{  
+           "type":"string"    ,
+           "description"  :"Alpha-2 country code as specified in ISO 3166-1"
+        },
+        "resident_address":{
+           "type":"string",
+           "description":"The full address of the place where the user to whom the person identification data relates currently resides or can be contacted (street name, house number, city etc.)"
+        },
+        "resident_country":{  
+           "type":"string"      
+        },
+        "resident_state":{  
+            "type":"string"      
+        },
+        "resident_city":{  
+            "type":"string"      
+        },
+        "resident_postal_code":{  
+            "type":"string"      
+        },
+        "resident_street":{  
+            "type":"string"      
+        },
+        "resident_house_number":{  
+            "type":"string"      
+        },
+        "personal_administrative_number":{  
+            "type":"string",      
+            "description":"A value assigned to the natural person that is unique among all personal administrative numbers issued by the provider of person identification data. Where Member States opt to include this attribute, they shall describe in their electronic identification schemes under which the person identification data is issued, the policy that they apply to the values of this attribute, including, where applicable, specific conditions for the processing of this value."
+        },
+        "portrait":{  
+            "type":"string",      
+            "description":"Facial image of the wallet user compliant with ISO 19794-5 or ISO 39794 specifications."
+        },
+        "family_name_birth":{  
+            "type":"string",      
+            "description":"Last name(s) or surname(s) of the person identification data user at the time of birth."
+        },
+        "given_name_birth":{  
+            "type":"string",      
+            "description":"First name(s), including middle name(s), of the person identification data user at the time of birth."
+        },
+        "sex":{  
+            "type":"number",      
+            "enum":[0,1,2,3,4,5,6,9],
+            "description":"Values shall be one of the following: 0 = not known; 1 = male; 2 = female; 3 = other; 4 = inter; 5 = diverse; 6 = open; 9 = not applicable. For values 0, 1, 2 and 9, ISO/IEC 5218 applies."
+        },
+        "email_address":{  
+            "type":"string",      
+            "description":"Electronic mail address of the user to whom the person identification data relates [in conformance with RFC 5322]."
+        },
+        "mobile_phone_number":{  
+            "type":"string",      
+            "description":"Mobile telephone number of the user to whom the person identification data relates, starting with the ‘+’ symbol as the international code prefix and the country code, followed by numbers only."
+        }
+    },
+     "required":[  
+        "family_name",
+        "given_name",
+        "birth_date",
+        "birth_place",
+        "nationality"
+     ]
+  },
+  "documentInfo": {
+      "title": "Identity Document Info",
+      "description": "Identity document data",
+      "type": "object",
+      "properties":{  
+        "document_type":{  
+           "type":"string",
+           "description":"Type of official identity document used in the attestation process"
+        },
+        "document_number":{  
+           "type":"string",
+           "description":"Unique identifier on the official identity document"
+        },
+        "issued_on":{  
+           "type":"string",
+           "description":"Date when the official identity document was issued"      
+        },
+        "expires_on":{  
+           "type":"string" ,     
+           "description":"Expiry date of the official identity document"
+        }
+    },
+     "required":[  
+        "document_type",
+        "document_number",
+        "expires_on"
+     ]
+  },
+  "identityProofingProcessCompliance": {
+    "title": "Identity Profing Process Compliance",
+    "description": "All regulations and certifications that are satisfied by the identity Proofing Process and so that are ensured by the identity assertion issuer",
+    "type": "object",
+    "properties":{  
+      "compliant_with":{  
+         "type":"array",
+         "description":"regulation at national or EU level, or tech standard that has been certified or that is ensured by the identity proofing service provider",
+         "items": {
+          "type": "string"
+         }
+     }
+    },
+   "required":[  
+      "compliant_with"
+   ]
+  },
+  "iss": {
+      "type": "string",
+      "format": "uri"
+    },
+    "iat": {
+      "type": "integer"
+    },
+    "exp": {
+      "type": "integer"
+    },
+    "vct": {
+      "type": "string",
+      "const": "eu.europa.ec.eudi.identity.1"
+    }
+  }
+}
