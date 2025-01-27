@@ -113,9 +113,8 @@ In this chapter, trust requirements and general considerations regarding the ide
 
 ### 5.1 Trust requirements on the identity attestation
 
-In the ARF 1.4, the following information for Pub-EAAs and QEAAs Providers is given.
-
-Pub-EAAs and QEAAs Providers are trusted entities responsible to:
+In the ARF 1.4, the following information for Pub-EAAs and QEAAs Providers is given. 
+Pub-EAAs and QEAAs Providers are trusted entities responsible to: 
 
 - Verify the identity of the EUDI Wallet User in compliance with LoA high requirements.
 - Issue attestations to the EUDI Wallet in a harmonized common format.
