@@ -11,6 +11,7 @@ Here is the list of all Rulebooks defined and used within the EWC scope and thei
 | **Rulebook #** | **Rulebook Title**                                                                                      |**Status (Under Development/Approved)**|
 | ---------------|---------------------------------------------------------------------------------------------------------|---------------------------------------|
 | RB-001         | [Legal Person Identification Data (LPID) Rulebook](/rulebooks/rb001-legal-person-identification-data.md)|                                       |
+| RB-002         | [EU Company Certificate Data Rulebook](/rulebooks/rb002_eu_company_certificate.md)|                                       |
 
 ## Data Schemas
 
