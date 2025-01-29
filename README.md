@@ -24,6 +24,7 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)|Under Development                      |
 | DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)   |Under Development                      |
 | DS-005             | [Photo ID](/data-schemas/ds005-photo-id-travel-document.json)            |                                       |
+| DS-006             | [Ultimate Beneficial Owners](/data-schemas/ds006_ultimate_beneficial_owners_attestation.json)            |                                       |
 
 ## Naming Conventions
 
