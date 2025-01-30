@@ -2,23 +2,23 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
+1. [Introduction](#1-introduction)
    
-    1.1. [Scope](#scope)  
-    1.2. [Background](#background)  
-    1.3. [Goal of the EUCC attestation](#goal-of-the-eucc-attestation)  
-    1.4. [Key words](#key-words)  
-    1.5. [Terminology](#terminology)  
-2. [EUCC Issuance process](#eucc-issuance-process)  
-3. [EUCC Verification process](#eucc-verification-process)  
-4. [EUCC attributes](#eucc-attributes)  
-5. [Trust infrastructure details](#trust-infrastructure-details)
+    1.1. [Scope](#11-scope)  
+    1.2. [Background](#12-background)  
+    1.3. [Goal of the EUCC attestation](#13-goal-of-the-eucc-attestation)  
+    1.4. [Key words](#14-key-words)  
+    1.5. [Terminology](#15-terminology)  
+2. [EUCC Issuance process](#2-eucc-issuance-process)  
+3. [EUCC Verification process](#3-eucc-verification-process)  
+4. [EUCC attributes](#4-eucc-attributes)  
+5. [Trust infrastructure details](#5-trust-infrastructure-details)
    
-    5.1. [Trust requirements on the EUCC attestation from the perspective of company registration offices as authentic sources for the EUCC](#trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc)  
-    5.2. [Trust a signature or seal over a EUCC](#trust-a-signature-or-seal-over-a-eucc)  
-    5.3. [EUCC Provider Trusted List](#eucc-provider-trusted-list)  
-    5.4. [SD-JWT-compliant](#sd-jwt-compliant)  
-8. [References](#references)  
+    5.1. [Trust requirements on the EUCC attestation from the perspective of company registration offices as authentic sources for the EUCC](#51-trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc)  
+    5.2. [Trust a signature or seal over a EUCC](#52-trust-a-signature-or-seal-over-a-eucc)  
+    5.3. [EUCC Provider Trusted List](#53-eucc-provider-trusted-list)  
+    5.4. [SD-JWT-compliant](#54-sd-jwt-compliant)  
+6. [References](#6-references)  
 
 ## 1. Introduction
 
