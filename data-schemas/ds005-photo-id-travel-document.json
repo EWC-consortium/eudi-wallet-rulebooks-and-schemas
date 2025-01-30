@@ -45,9 +45,9 @@
         },
         "portrait": {
           "title": "Portrait",
-          "description": "A reproduction of the document holder’s portrait.",
+          "description": "A portrait image encoded as a Data URI.",
           "type": "string",
-          "format": "binary"
+          "pattern": "^data:image\\/(png|jpeg|gif|bmp|webp);base64url,[a-zA-Z0-9-_=]+$"
         },
         "issue_date": {
           "title": "Issue Date",
