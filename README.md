@@ -23,7 +23,7 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | DS-001             | [EU Company Certificate](/data-schemas/ds001-eu-company-certificate.json)                     | Under Development                       |
 | DS-002             | [IBAN attesatation](/data-schemas/ds002-iban-attestation.json)                                | Under Development                       |
 | DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)                     | Under Development                       |
-| DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)                        | Under Development                       |
+| DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)                        | Approved                                |
 | DS-005             | [Photo ID](/data-schemas/ds005-photo-id-travel-document.json)                                 | Under Development                       |
 | DS-006             | [Ultimate Beneficial Owners](/data-schemas/ds006_ultimate_beneficial_owners_attestation.json) | Under Development                       |
 | DS-007             | [Payment Wallet Attestations](/data-schemas/ds007-payment-wallet-attestation.json)            | Approved                                |
