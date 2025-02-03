@@ -47,7 +47,7 @@
           "title": "Portrait",
           "description": "A portrait image encoded as a Data URI.",
           "type": "string",
-          "pattern": "^data:image\\/(png|jpeg|gif|bmp|webp);base64url,[a-zA-Z0-9-_=]+$"
+          "pattern": "^data:image\\/(png|jpeg|gif|bmp|webp);base64,[a-zA-Z0-9+/=]+$"
         },
         "issue_date": {
           "title": "Issue Date",
