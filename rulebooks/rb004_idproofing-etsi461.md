@@ -22,6 +22,7 @@
 ## 1. Introduction
 
 *Disclaimer: This document is a draft and needs to be commented on and completed to be published as EWC WP4 T4.3 deliverable. *
+
 The engagement of the wallet and the technical interface in order to authenticate the user and deliver the credential to the wallet is specified on RFC001. 
 A rulebook instead is a document with an issuer centric perspective, so it aims to define which are the authentication/authorization allowed processes (regarding data required and its verification, checkings against open data registries) and which could be the functions in scope in order to collect and verify data properly. This data will be described in a data scheme.
 Note: This rulebook will contribute for a definition of a generic specification for rulebooks, dedicated to issuers and specific sectorial opportunities in order to guarantee the trustworthiness of credentials.
@@ -118,6 +119,8 @@ Two objects are described in this attestation:
 The identity schema is available in the EWC schemas and rulebooks repository: [identity data schema](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/data-schemas/ds006-identity.json).
 
 Of course this model could be extended with optional attributes according to specific information that could be present in different eu states on the document. 
+
+Namespace? we refer ebsi data model?
 
 ### 5.1 Credential Subject attributes
 This document defines the following attributes related to the credential subject that has been identified through the process.
