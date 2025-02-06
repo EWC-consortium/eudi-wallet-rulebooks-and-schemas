@@ -55,9 +55,9 @@ So the goals of such a credential are:
 2. to extend identification data of the PID (as credential subject) with attribute of the identity document used in the process
 3. to refer to a normative and technical reference that's a recognized market standard, and so it's validity could be portable on different business cases cross sector
 
-The level of Identity Proofing is of course an important qualitative element of this credential. Probably two different credential types should be addressed according to LoIP high or substantial
-In order to meet a vast field of application, we think that's could be useful and easier to keep a substantial level at this stage, that's the reference of the actual version of this tech standard, and that is compliant with EBA guidelines for AML in Europe.
-
+The level of Identity Proofing is of course an important qualitative element of this credential. Probably two different credential types should be addressed according to LoIP high or substantial, and this rely on the identification process only.
+In order to meet a vast field of application, it could be useful and easier to keep a substantial level at this stage, that's the reference of the actual version of this tech standard, and that is compliant with EBA guidelines for AML in Europe.
+In any case this type of credential could be a valid example of a QEAA, according to the fact that QTSPs have the ability to issue credentials with a LoIP high similar to the PID. 
 PhotoId is an example of a process like this: the passport could be read by NFC (in this case the loip would be high) or through OCR (optical scanning). 
 
 *** Note** A new identity attestation with level high could be introduced.
