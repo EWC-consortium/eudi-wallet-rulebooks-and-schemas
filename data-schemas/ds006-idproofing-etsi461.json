@@ -137,20 +137,6 @@
    "required":[  
       "compliant_with"
    ]
-  },
-  "iss": {
-      "type": "string",
-      "format": "uri"
-    },
-    "iat": {
-      "type": "integer"
-    },
-    "exp": {
-      "type": "integer"
-    },
-    "vct": {
-      "type": "string",
-      "const": "eu.europa.ec.eudi.identity.1"
-    }
   }
+ }
 }
