@@ -24,7 +24,10 @@
 *Disclaimer: This document is a draft and needs to be commented on and completed to be published as EWC WP4 T4.3 deliverable. *
 
 The engagement of the wallet and the technical interface in order to authenticate the user and deliver the credential to the wallet is specified on RFC001. 
+
 A rulebook instead is a document with an issuer centric perspective, so it aims to define which are the authentication/authorization allowed processes (regarding data required and its verification, checkings against open data registries) and which could be the functions in scope in order to collect and verify data properly. This data will be described in a data scheme.
+Data schemes are the technical format (for now focusing on json, but they could be in other formats).
+
 Note: This rulebook will contribute for a definition of a generic specification for rulebooks, dedicated to issuers and specific sectorial opportunities in order to guarantee the trustworthiness of credentials.
 
 ### 1.1 Scope
@@ -33,7 +36,7 @@ This document focuses on the guidelines that an issuer should follow in order to
 2. a reference to identity attributes data scheme and to a generic issuance and verification process 
 3. and Trust Infrastructure integration.
 
-The etsi standard provides different types of identification processes (in presence, based on a videocall with an operator, or in self mode) and authentication mechanisms (like eid and using a qualified signature) : in this rulebook we focus on those identification processes based on identity documents because this represents a transposition from physical to digital world. This is the case for instance of the PhotoID credential, that is a transposition of a passport to a credential form. 
+The ETSI standard provides different types of identification processes (in presence, based on a videocall with an operator, or in self mode) and authentication mechanisms (like eid and using a qualified signature) : in this rulebook we focus on those identification processes based on identity documents because this represents a transposition from physical to digital world. This is the case for instance of the PhotoID credential, that is a transposition of a passport to a credential form. 
 
 [Topic 10/23](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/annexes/annex-2/annex-2-high-level-requirements.md#a2310-topic-10---issuing-a-pid-or-attestation-to-the-eudi-wallet) in the ARF 1.4 specifies that attestation must be issued in the [SD-JWT VC] format, among others. This rulebook supports the [SD-JWT VC] requirements.
 
@@ -46,7 +49,6 @@ The ETSI tech reference is a market standard that describes different usecases r
 The outcome is an identity assertion that generally is used in QeS certificate issuance or in other contexts, like in banking account opening for AML and KYC processes, and of course allow eid and QeS usage to identify the user.
 In Eidas v1 this technical standard was not mandatory, and it focuses on a level of Identity Proofing substantial, that was the requirement for the issuance of a QeS certificate.
 In Eidas v2 the bar has been raised, so a second version of this technical standard has been written in order to specify the requirements for both LoIPs, substantial and high, improving the quality assurance of the identification process with specific and stricter data collection and verification requirements, both for biometric analysis and document validation.
-
 
 ### 1.3 Goal of the IdProofing etsi 461 attestation
 Among all usecases addressed in the etsi 119 461, we would like to focus on processes based on biometric liveness checks and identity document acquisition, and keeping aside eid and signature recognition at this stage (These technical forms could not be ammitted in some business cases).
@@ -65,7 +67,7 @@ PhotoId is an example of a process like this: the passport could be read by NFC 
 In banking scenario is applicable for Customer Due Diligence (CDD) or Know-Your-Customer (KYC) processes.
 The business value of this attestation must be seeked also in the ability to represent an enablement of the ecosystem of the wallet in a transition and coexistence phase prior to the consolidation of EUDIW trust model and PID availability to all EU citizens. And of course it could enable the availability of different attributes and information than official PID ones, nowadays managed by actual available identification processes provided by local and EU QTSPs. So we assume that within the EUDIW framework, aside the PID there will be a collection of credential related to the official identity of the user like this one and all the others that for instance will represent a credential digital form of physical documents or eIDs. These credentials will be based on existing and certified identification or data verification processes that will enable the progressive adoption of EUDIW in existing business processes of everyday life.
 
-This credential includes subject identity data and ID document data. There could be more than one data scheme derived from the one that is linked in this project (ds006).
+This credential includes subject identity data and ID document data. Because requirements for identity proofing may vary in different countries and some (Q)TSPs may have different preferences, this may lead to different data schemes. A first proposal is provided in [ds006]
 
 ### 1.4 Key words
 
@@ -116,7 +118,7 @@ Two objects are described in this attestation:
 1. credentialSubject: it represents the subject and his information that has been collected dureing the identification process; attribute names have been adapted to PID terminology 
 2. documentInfo: evidence references of the identity document used in the identification process
 
-The identity schema is available in the EWC schemas and rulebooks repository: [identity data schema](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/data-schemas/ds006-identity.json).
+The identity schema is available in the EWC schemas and rulebooks repository: [idproofing etsi 461 data schema](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/data-schemas/ds006-identity.json).
 
 Of course this model could be extended with optional attributes according to specific information that could be present in different eu states on the document. 
 
