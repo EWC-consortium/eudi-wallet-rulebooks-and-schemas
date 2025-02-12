@@ -32,7 +32,7 @@ This document is the EU Company Certificate Data (referred to as **EUCC**) Ruleb
 
 ### 1.2 Background
 
-The need for an EUCC is explained in the EU Company Law (EU) 2023/0089: "companies should be able to prove that their company is legally incorporated in a Member State through simple and reliable means, which are recognized cross-border by other Member States. Therefore, a harmonised EU Company Certificate should be established."
+The need for an EUCC is explained in the EU Company Law (EU) 2025/25  “the EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered."
 
 In this Directive proposal, the mandatory and optional data elements are listed. Thanks to the work of Business Registers participating in EWC, we were able to adapt this attributes list to the data availability in the registries and the reality of national usages and requirements.
 
@@ -70,7 +70,7 @@ In addition to the attributes definition necessary to understand the data schema
 
 ## 2. EUCC Issuance process
 
-The Regulation specifies who is able to issue the EUCC to companies: “Companies could apply for such an EU Company Certificate, with national business registers or through the system of interconnection of registers […] Such an EU Company Certificate should be issued and certified by the national business registers.”
+The Regulation specifies who is able to issue the EUCC to companies: “Companies could apply for such an EU Company Certificate, with national business registers or through the system of interconnection of registers […] Such an EU Company Certificate should be issued and certified by the business registers.”
 
 To comply with the Regulation, only Business Registries are allowed to be the authentic source of the EUCC attestation, and they can decide to use a Pub-EAAs provider to issue it on their behalf.
 
