@@ -11,8 +11,9 @@ Here is the list of all Rulebooks defined and used within the EWC scope and thei
 | **Rulebook #** | **Rulebook Title**                                                                                       | **Status (Under Development/Approved)** |
 | -------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | RB-001         | [Legal Person Identification Data (LPID) Rulebook](/rulebooks/rb001-legal-person-identification-data.md) |                                         |
-| RB-002         | [EU Company Certificate Data Rulebook](/rulebooks/rb002_eu_company_certificate.md)                       |                                         |
-| RB-003         | [IBAN Data Rulebook](/rulebooks/rb003_IBAN_attestation.md)                                               |                                         |
+| RB-002         | [EU Company Certificate Data Rulebook](/rulebooks/rb002_eu_company_certificate.md)                       |      Under Development                  |
+| RB-003         | [IBAN Data Rulebook](/rulebooks/rb003_IBAN_attestation.md)                                               |      Under Development                  |
+| RB-004         | [Signatory Rights Rulebook](/rulebooks/rb004_signatory_rights.md)                                        |      Under Development                  |
 
 ## Data Schemas
 
@@ -21,7 +22,7 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | **Data Schemas #** | **Data Schemas Title**                                                                        | **Status (Under Development/Approved)** |
 | ------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------- |
 | DS-001             | [EU Company Certificate](/data-schemas/ds001-eu-company-certificate.json)                     | Under Development                       |
-| DS-002             | [IBAN attesatation](/data-schemas/ds002-iban-attestation.json)                                | Under Development                       |
+| DS-002             | [IBAN attestation](/data-schemas/ds002-iban-attestation.json)                                 | Under Development                       |
 | DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)                     | Under Development                       |
 | DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)                        | Approved                                |
 | DS-005             | [Photo ID](/data-schemas/ds005-photo-id-travel-document.json)                                 | Under Development                       |
