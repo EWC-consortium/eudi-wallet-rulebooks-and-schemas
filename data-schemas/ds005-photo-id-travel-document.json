@@ -219,92 +219,128 @@
         "dtc_dg1": {
           "title": "Data Group 1",
           "description": "The full MRZ data for DTC Data Group 1, encoded as a string.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg2": {
           "title": "Data Group 2",
           "description": "The biometric data for DTC Data Group 2 (e.g., facial image).",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg3": {
           "title": "Data Group 3",
           "description": "Binary data for DTC Data Group 3.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg4": {
           "title": "Data Group 4",
           "description": "Binary data for DTC Data Group 4.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg5": {
           "title": "Data Group 5",
           "description": "Binary data for DTC Data Group 5.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg6": {
           "title": "Data Group 6",
           "description": "Binary data for DTC Data Group 6.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg7": {
           "title": "Data Group 7",
           "description": "Binary data for DTC Data Group 7.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg8": {
           "title": "Data Group 8",
           "description": "Binary data for DTC Data Group 8.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg9": {
           "title": "Data Group 9",
           "description": "Binary data for DTC Data Group 9.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg10": {
           "title": "Data Group 10",
           "description": "Binary data for DTC Data Group 10.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg11": {
           "title": "Data Group 11",
           "description": "Binary data for DTC Data Group 11.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg12": {
           "title": "Data Group 12",
           "description": "Binary data for DTC Data Group 12.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg13": {
           "title": "Data Group 13",
           "description": "Binary data for DTC Data Group 13.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg14": {
           "title": "Data Group 14",
           "description": "Binary data for DTC Data Group 14.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg15": {
           "title": "Data Group 15",
           "description": "Binary data for DTC Data Group 15.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_dg16": {
           "title": "Data Group 16",
           "description": "Binary data for DTC Data Group 16.",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dtc_sod": {
           "title": "Security Object Document",
-          "description": "he encoded Security Object Document (SOD) for DTC, which contains the digital signature and other cryptographic information.",
-          "type": "string"
+          "description": "The encoded Security Object Document (SOD) for DTC, which contains the digital signature and other cryptographic information.",
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         },
         "dg_content_info": {
           "title": "Content Info",
           "description": "Binary data of the DTCContentInfo",
-          "type": "string"
+          "type": "string",
+          "format": "binary",
+          "contentEncoding": "base64"
         }
       }
     },
