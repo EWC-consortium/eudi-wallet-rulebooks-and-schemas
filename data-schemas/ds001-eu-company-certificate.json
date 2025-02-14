@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "issuing_authority": {
-      "description": "Name of the public sector body or private entity that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
+      "description": "Name of the administrative authority that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
       "type": "string"
     },
     "issuing_authority_id": {
@@ -173,10 +173,6 @@
                   "description": "Details of the company website",
                   "type": "string",
                   "format": "uri"
-                },
-                "contact_telephone": {
-                  "description": "Details of the company phone",
-                  "type": "string"
                 },
                 "contact_email": {
                   "description": "Details of the company email",
