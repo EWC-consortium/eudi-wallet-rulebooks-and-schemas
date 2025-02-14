@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Payment Wallet Attestation",
+  "description": "Schema for Payment Wallet Attestation (PWA) credentials.",
+  "type": "object",
+  "properties": {
+    "iss": {
+      "description": "Issuer of the credential.",
+      "type": "string"
+    },
+    "aud": {
+      "description": "Intended audience of the credential.",
+      "type": "string"
+    },
+    "sub": {
+      "description": "Unique identifier assigned and retained by the PSP for the holder.",
+      "type": "string"
+    },
+    "iat": {
+      "description": "Time of issuance.",
+      "type": "number"
+    },
+    "nbf": {
+      "description": "Not to be used before this time.",
+      "type": "number"
+    },
+    "exp": {
+      "description": "Expiry time of the credential.",
+      "type": "number"
+    },
+    "vct": {
+      "description": "Currently, the supported value is PaymentWalletAttestation.",
+      "type": "string",
+      "enum": ["PaymentWalletAttestation"]
+    },
+    "jti": {
+      "description": "Unique identifier assigned and retained by the PSP for this credential.",
+      "type": "string"
+    },
+    "fundingSource": {
+      "description": "Details about the funding source for which the PWA is valid.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Type of funding source, supported values are account, card, and any.",
+          "type": "string",
+          "enum": ["account", "card", "any"]
+        },
+        "panLastFour": {
+          "description": "Last four digits of the Primary Account Number (PAN).",
+          "type": "string",
+          "pattern": "^[0-9]{4}$"
+        },
+        "iin": {
+          "description": "Issuer Identification Number (IIN), also called Bank Identification Number (BIN).",
+          "type": "string",
+          "pattern": "^[0-9]{6,8}$"
+        },
+        "parLastFour": {
+          "description": "Last four characters of the EMV Payment Account Reference (PAR).",
+          "type": "string",
+          "maxLength": 4
+        },
+        "ibanLastFour": {
+          "description": "Last four characters of the account's IBAN.",
+          "type": "string",
+          "pattern": "^[A-Z0-9]{4}$"
+        },
+        "bic": {
+          "description": "Bank Identifier Code (BIC) as per ISO 9362.",
+          "type": "string"
+        },
+        "sortCode": {
+          "description": "National bank sort or routing code.",
+          "type": "string"
+        },
+        "aliasId": {
+          "description": "Unique identifier assigned and retained by the PSP for the funding source.",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency for the funding source in 3-letter alphabetic code.",
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "scheme": {
+          "description": "Scheme of the funding source.",
+          "type": "string",
+          "enum": [
+            "Visa",
+            "American Express",
+            "Discover",
+            "JCB",
+            "Mastercard",
+            "UnionPay",
+            "SEPA",
+            "SEPA SCT",
+            "SEPA SCT Inst"
+          ]
+        },
+        "icon": {
+          "description": "URI to logo or card art.",
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "cnf": {
+      "description": "Object containing information for cryptographic holder binding.",
+      "type": "object",
+      "properties": {
+        "jwk": {
+          "description": "JSON Web Key as per specification.",
+          "type": "object",
+          "properties": {
+            "kty": {
+              "description": "Key type.",
+              "type": "string"
+            },
+            "crv": {
+              "description": "Curve of the key.",
+              "type": "string"
+            },
+            "x": {
+              "description": "The x-coordinate for the elliptic curve point.",
+              "type": "string"
+            },
+            "y": {
+              "description": "The y-coordinate for the elliptic curve point.",
+              "type": "string"
+            }
+          },
+          "required": ["kty", "crv", "x", "y"]
+        }
+      },
+      "required": ["jwk"]
+    }
+  },
+  "required": ["iss", "sub", "iat", "vct", "fundingSource", "cnf"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "fundingSource": {
+            "properties": {
+              "type": {
+                "const": "card"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "fundingSource": {
+            "required": ["panLastFour", "iin"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "fundingSource": {
+            "properties": {
+              "type": {
+                "const": "account"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "fundingSource": {
+            "required": ["ibanLastFour", "bic"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "fundingSource": {
+            "properties": {
+              "type": {
+                "const": "any"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "fundingSource": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": ["aliasId"]
+                },
+                {
+                  "required": ["currency"]
+                },
+                {
+                  "required": ["scheme"]
+                },
+                {
+                  "required": ["icon"]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

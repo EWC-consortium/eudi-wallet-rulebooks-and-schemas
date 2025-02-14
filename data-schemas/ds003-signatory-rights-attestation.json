@@ -4,8 +4,8 @@
   "description": "Schema for Signatory Rights -  EWC WP3",
   "type": "object",
   "properties": {
-    "issuing_authority": {
-      "description": "Name of issuer from the MS that issued the credential",
+   "issuing_authority": {
+      "description": "Name of the public sector body or private entity that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
       "type": "string"
     },
     "issuing_authority_id": {
@@ -19,7 +19,7 @@
       "maxLength": 2
     },
     "issuing_jurisdiction": {
-      "description": "As defined in ISO 3166-2:2020, of the issuing country or territory.",
+      "description": "Country subdivision code of the jurisdiction that issued the credential instance, as defined in ISO 3166-2:2020, Clause 8. The first part of the code SHALL be the same as the value for issuing_country.",
       "type": "string",
       "minLength": 2,
       "maxLength": 6
@@ -35,65 +35,49 @@
       "format": "date-time"
     },
     "authentic_source_id": {
-      "description": "LPID Id of the issuing authority. (Business register identifier for BRIS)",
+      "description": "EUID for the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "authentic_source_name": {
-      "description": "Name of issuer from the MS that issued the credential",
+      "description": "Name of the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
       "type": "string"
     },
     "credentialSubject": {
       "description": "Attributes describing the legal representation of a legal entity",
       "type": "object",
       "properties": {
-        "legalEntity": {
-          "type": "object",
-          "properties": {
-            "legalName": {
-              "description": "Legal person official name as in LPID",
+        "legal_person_name": {
+              "description": "Official current legal person name as registered in the business register.",
               "type": "string"
             },
-            "legalIdentifier": {
-              "description": "National registration number of the company",
-              "type": "string"
-            },
-            "identifier": {
-              "description": "EUID of the company",
+            "legal_person_id": {
+              "description": "Unique id for organisations in EUID structure",
               "type": "string"
             }
           },
           "required": [
-            "legalName",
-            "legalIdentifier",
-            "identifier"
+            "legal_person_name",
+            "legal_person_id"
           ]
-        },
-        "signatoryRule": {
-              "description": "Information if the representative can engage the company alone or jointly",
-              "type": "string",
-              "enum": [
-                "alone"
-              ]
-            },    
-        "signatoryRights": {
+        },   
+        "signatory_rights": {
           "description": "Information about the person and its signatory right about the legal entity",
           "type": "array",
           "items": {
             "oneOf": [
               {
-                "$ref": "#/$defs/signatoryRights.heldByPerson"
+                "$ref": "#/$defs/signatory_rights.held_by_person"
               },
               {
-                "$ref": "#/$defs/signatoryRights.HeldBylegalPerson"
+                "$ref": "#/$defs/signatory_rights.Held_by_legal_person"
               }
             ]
           }
         }
       },
       "required": [
-        "legalEntity",
-        "signatoryRights",
-        "signatoryRule"
+        "legal_entity",
+        "signatory_rights"
       ]
     },
     "credentialStatus": {
@@ -165,19 +149,30 @@
         "type"
       ]
     },
-    "signatoryRights.heldByPerson": {
+    "signatory_rights.held_by_person": {
       "description": "Details about the signatory of the company and his right if incarnated by a physical person",
       "type": "object",
       "properties": {
-        "fullName": {
+        "full_name": {
           "description": "Full name of the physical person representing the company ",
           "type": "string"
         },
-        "dateOfBirth": {
+        "date_of_birth": {
           "description": "Date of birth of the physical person representing the company",
           "type": "string",
           "format": "date"
         },
+        "nationality": {
+          "description": "Nationality of the physical person representing the company",
+          "type": "string"
+        },
+        "signatory_rule": {
+              "description": "Information if the signatory can engage the company alone or jointly",
+              "type": "string",
+              "enum": [
+                "alone"
+              ]
+            },
         "post": {
           "description": "Role of the person",
           "type": "array",
@@ -185,7 +180,7 @@
             "type": "object",
             "properties": {
               "code": {
-                "description": "Code of the post of the person",
+                "description": " National code of the post of the person",
                 "type": "string"
               },
               "name": {
@@ -200,25 +195,30 @@
         }
       },
       "required": [
-        "fullName",
-        "dateOfBirth"
+        "full_name",
+        "date_of_birth",
+        "signatory_rule"
       ]
     },
-    "signatoryRights.HeldBylegalPerson": {
+    "signatory_rights.Held_by_legal_person": {
       "description": "Details about the representative of the company and its right if incarnated by a legal person",
       "type": "object",
       "properties": {
-        "legalName": {
-          "description": "Registered name of the legal person representing the company",
-          "type": "string"
+        "legal_person_name": {
+              "description": "Official current legal person name as registered in the business register.",
+              "type": "string"
+            },
+            "legal_person_id": {
+              "description": "Unique id for organisations in EUID structure",
+              "type": "string"
+            },
         },
-        "legalIdentifier": {
-          "description": "National registration number of the company",
-          "type": "string"
-        },
-        "identifier": {
-          "description": "EUID of the legal person representing the company",
-          "type": "string"
+        "signatory_rule": {
+          "description": "Information if the signatory can engage the company alone or jointly",
+          "type": "string",
+          "enum": [
+            "alone"
+            ]
         },
         "post": {
           "description": "Role of the person",
@@ -242,10 +242,9 @@
           }
       },
       "required": [
-        "legalName",
-        "legalIdentifier",
-        "post",
-        "identifier"
+        "legal_person_name",
+        "legal_person_id",
+        "signatory_rule"
       ]
     }
   }
