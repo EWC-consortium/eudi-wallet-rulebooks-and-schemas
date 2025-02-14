@@ -209,7 +209,7 @@
         }
       },
       "required": [
-        "legal_entity",
+        "legal_person",
         "legal_representative"
       ]
     },
