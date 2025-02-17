@@ -2,23 +2,23 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
+1. [Introduction](#1-introduction)
    
-    1.1. [Scope](#scope)  
-    1.2. [Background](#background)  
-    1.3. [Goal of the EUCC attestation](#goal-of-the-eucc-attestation)  
-    1.4. [Key words](#key-words)  
-    1.5. [Terminology](#terminology)  
-2. [EUCC Issuance process](#eucc-issuance-process)  
-3. [EUCC Verification process](#eucc-verification-process)  
-4. [EUCC attributes](#eucc-attributes)  
-5. [Trust infrastructure details](#trust-infrastructure-details)
+    1.1. [Scope](#11-scope)  
+    1.2. [Background](#12-background)  
+    1.3. [Goal of the EUCC attestation](#13-goal-of-the-eucc-attestation)  
+    1.4. [Key words](#14-key-words)  
+    1.5. [Terminology](#15-terminology)  
+2. [EUCC Issuance process](#2-eucc-issuance-process)  
+3. [EUCC Verification process](#3-eucc-verification-process)  
+4. [EUCC attributes](#4-eucc-attributes)  
+5. [Trust infrastructure details](#5-trust-infrastructure-details)
    
-    5.1. [Trust requirements on the EUCC attestation from the perspective of company registration offices as authentic sources for the EUCC](#trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc)  
-    5.2. [Trust a signature or seal over a EUCC](#trust-a-signature-or-seal-over-a-eucc)  
-    5.3. [EUCC Provider Trusted List](#eucc-provider-trusted-list)  
-    5.4. [SD-JWT-compliant](#sd-jwt-compliant)  
-8. [References](#references)  
+    5.1. [Trust requirements on the EUCC attestation from the perspective of company registration offices as authentic sources for the EUCC](#51-trust-requirements-on-the-eucc-attestation-from-the-perspective-of-company-registration-offices-as-authentic-sources-for-the-eucc)  
+    5.2. [Trust a signature or seal over a EUCC](#52-trust-a-signature-or-seal-over-a-eucc)  
+    5.3. [EUCC Provider Trusted List](#53-eucc-provider-trusted-list)  
+    5.4. [SD-JWT-compliant](#54-sd-jwt-compliant)  
+6. [References](#6-references)  
 
 ## 1. Introduction
 
@@ -32,7 +32,7 @@ This document is the EU Company Certificate Data (referred to as **EUCC**) Ruleb
 
 ### 1.2 Background
 
-The need for an EUCC is explained in the EU Company Law (EU) 2023/0089: "companies should be able to prove that their company is legally incorporated in a Member State through simple and reliable means, which are recognized cross-border by other Member States. Therefore, a harmonised EU Company Certificate should be established."
+The need for an EUCC is explained in the EU Company Law (EU) 2025/25  “the EU Company Certificate shall be accepted in all Member States as sufficient evidence, at the time of its issuance, of the incorporation of the company and of the information listed in paragraphs 2 and 3 of this Article, respectively, which is held by the register in which the company is registered."
 
 In this Directive proposal, the mandatory and optional data elements are listed. Thanks to the work of Business Registers participating in EWC, we were able to adapt this attributes list to the data availability in the registries and the reality of national usages and requirements.
 
@@ -70,7 +70,7 @@ In addition to the attributes definition necessary to understand the data schema
 
 ## 2. EUCC Issuance process
 
-The Regulation specifies who is able to issue the EUCC to companies: “Companies could apply for such an EU Company Certificate, with national business registers or through the system of interconnection of registers […] Such an EU Company Certificate should be issued and certified by the national business registers.”
+The Regulation specifies who is able to issue the EUCC to companies: “Companies could apply for such an EU Company Certificate, with national business registers or through the system of interconnection of registers […] Such an EU Company Certificate should be issued and certified by the business registers.”
 
 To comply with the Regulation, only Business Registries are allowed to be the authentic source of the EUCC attestation, and they can decide to use a Pub-EAAs provider to issue it on their behalf.
 

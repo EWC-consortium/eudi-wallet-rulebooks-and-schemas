@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "issuing_authority": {
-      "description": "Name of the public sector body or private entity that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
+      "description": "Name of the administrative authority that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
       "type": "string"
     },
     "issuing_authority_id": {
@@ -174,10 +174,6 @@
                   "type": "string",
                   "format": "uri"
                 },
-                "contact_telephone": {
-                  "description": "Details of the company phone",
-                  "type": "string"
-                },
                 "contact_email": {
                   "description": "Details of the company email",
                   "type": "string",
@@ -196,8 +192,7 @@
             "legal_entity_status",
             "legal_entity_activity"
           ]
-        }
-      },
+        },
         "legal_representative": {
           "description": "Information about any person authorized by the company to represent it alone or jointly",
           "type": "array",
@@ -211,7 +206,8 @@
               }
             ]
           }
-        },
+        }
+      },
       "required": [
         "legal_entity",
         "legal_representative"
@@ -323,16 +319,16 @@
       "type": "object",
       "properties": {
         "legal_person_name": {
-              "description": "Official current legal person name as registered in the business register.",
-              "type": "string"
-            },
-            "legal_person_id": {
-              "description": "Unique id for organisations in EUID structure",
-              "type": "string"
-            },
-            "legal_form_type": {
-              "description": "Legal form of the company",
-              "type": "string"
+          "description": "Official current legal person name as registered in the business register.",
+          "type": "string"
+        },
+        "legal_person_id": {
+          "description": "Unique id for organisations in EUID structure",
+          "type": "string"
+        },
+        "legal_form_type": {
+          "description": "Legal form of the company",
+          "type": "string"
         }
       },
       "required": [

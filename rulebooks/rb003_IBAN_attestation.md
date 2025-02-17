@@ -106,7 +106,7 @@ This table contains the name of the attribute, its description, and whether the 
 | IBAN | International Bank Account Number, as defined in ISO 13616:2020. | Yes |
 | account_type | Nature of the bank account. | Yes |
 | account_currency | Currency code used of the account, as defined in ISO 4217:2015. | Yes |
-| account_usage | Specification about the private or professional usage of the acccount. | No |
+| account_usage | Specification about the private or professional usage of the account. This additional information allows to further distinguish personal bank accounts from professional bank accounts. | No |
 | account_ownership | Attributes representing the account ownership. | Yes |
 | owner_name | Legal name of the legal person owning the account. | Yes |
 | parties | List of parties involved in the account ownership. | No |
@@ -139,12 +139,16 @@ The IBAN schema is available in the EWC schemas and rulebooks repository: [IBAN 
 
 ### 4.1 Parties-related attributes
 
+*Note*: The "owner_name" field is only intended for the legal name of the company. If the company is owned by a single physical person, this physical person's relation to the company SHALL be indicated in the "parties" field. 
 This document defines the following attributes related to the parties of the IBAN holder:
 
 - full_name
 - role
 
 The detailed attributes allow the IBAN attestation to encapsulate the natural person that have access to the legal entity's bank account.
+
+Parties included in the IBAN attestation serve solely to provide information about the individuals with access to or ownership of the bank account. 
+The presence of a party in the attestation DOES NOT determine who can present or use the IBAN attestation in a business process.
 
 ### 4.2 Minimum number of optional attributes
 
