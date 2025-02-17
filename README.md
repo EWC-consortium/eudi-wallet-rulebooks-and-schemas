@@ -14,6 +14,7 @@ Here is the list of all Rulebooks defined and used within the EWC scope and thei
 | RB-002         | [EU Company Certificate Data Rulebook](/rulebooks/rb002_eu_company_certificate.md)                       |      Under Development                  |
 | RB-003         | [IBAN Data Rulebook](/rulebooks/rb003_IBAN_attestation.md)                                               |      Under Development                  |
 | RB-004         | [Signatory Rights Rulebook](/rulebooks/rb004_signatory_rights.md)                                        |      Under Development                  |
+| RB-005         | [IdentityProofing ETSI 119.461](/rulebooks/rb005_idproofing-etsi461.md)                                        |      Under Development                  |
 
 ## Data Schemas
 
@@ -29,6 +30,7 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | DS-006             | [Ultimate Beneficial Owners](/data-schemas/ds006-ultimate-beneficial-owners-attestation.json) | Under Development                       |
 | DS-007             | [Payment Wallet Attestations](/data-schemas/ds007-payment-wallet-attestation.json)            | Approved                                |
 | DS-008             | [Payment Data Confirmation ](/data-schemas/ds008-payment-data-confirmation.json)              | Approved                                |
+| DS-014             | [IdentityProofing ETSI 119.461 ](/data-schemas/ds014-idproofing-etsi461.json)              | Under Development                                |
 
 ## Naming Conventions
 
