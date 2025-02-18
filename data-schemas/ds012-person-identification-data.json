@@ -1,132 +1,222 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "scope": {
-        "type": "string",
-        "enum": ["PID"]
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EWC - Physical PID",
+  "description": "Schema for Physical PID -  EWC WP3",
+  "type": "object",
+  "allOf": [
+      {
+          "$ref": "https://raw.githubusercontent.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/refs/heads/main/data-schemas/common/ds012-person-identification-data.json"
       },
-      "claims": {
-        "type": "object",
-        "properties": {
-          "given_name": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "family_name": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "birth_date": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "age_over_18": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "issuance_date": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "expiry_date": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "issuing_authority": {
-            "$ref": "#/definitions/displayObject"
-          },
-          "issuing_country": {
-            "$ref": "#/definitions/displayObject"
+      {
+          "properties": {
+              "issuing_authority": {
+                  "description": "Name of issuer from the MS that issued the ODI instance",
+                  "type": "string"
+              },
+              "issuing_country": {
+                  "description": "Alpha-2 country code, as defined in ISO 3166-1, of the issuing country or territory.",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 2
+              },
+              "issuing_jurisdiction": {
+                  "description": "As defined in ISO 3166-2:2020, of the issuing country or territory.",
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 6
+              },
+              "issuance_date": {
+                  "description": "Date and possibly time of issuance",
+                  "type": "string",
+                  "format": "datetime"
+              },
+              "expiry_date": {
+                  "description": "Date and possibly time of PID expiration",
+                  "format": "datetime"
+              },
+              "document_number":{  
+                "type":"string",
+                "description": "A number for the person identification data, assigned by the provider of person identification data."   
+              },
+              "location_status":{  
+                "type":"string",
+                "description": "The location of validity status information on the person identification data where the providers of person identification data revoke person identification data."   
+               },
+             "trust_anchor":{
+               "type":"string",      
+               "description":"This attribute indicates at least the URL at which a machine-readable version of the trust anchor to be used for verifying the PID can be found or looked up. Note: This attribute corresponds to the location meant in Annex V point h) or Annex VII point h) of the [European Digital Identity Regulation], which is mandatory for QEAAs. This PID Rulebook add this as an optional attribute for PIDs as well, so PID Providers are able to ensure that PIDs can be validated by Relying Parties in the same manner as QEAAs. (specified only in the ARF PID rulebook)."
+             },
+             "credentialSubject": {
+                  "description": "Attributes representing a Physical PID",
+                  "type": "object",
+                  "properties": {
+                    "family_name":{  
+                      "type":"string"
+                   },
+                   "given_name":{  
+                      "type":"string"
+                   },
+                   "birth_date":{  
+                      "type":"date"      
+                   },
+                   "birth_place":{  
+                      "type":"string"  ,
+                      "description":"The country as an alpha-2 country code as specified in ISO 3166-1, or the state, province, district, or local area or the municipality, city, town, or village where the user to whom the person identification data relates was born."    
+                   },
+                   "nationality":{  
+                      "type":"string" ,    
+                      "description":"One or more alpha-2 country codes as specified in ISO 3166-1, representing the nationality of the user to whom the person identification data relates." 
+                   },
+                   "resident_address":{
+                      "type":"string",
+                      "description":"The full address of the place where the user to whom the person identification data relates currently resides or can be contacted (street name, house number, city etc.)"
+                   },
+                   "resident_country":{  
+                      "type":"string",
+                      "description":"The country where the user to whom the person identification data relates currently resides, as an alpha-2 country code as specified in ISO 3166-1."      
+                   },
+                   "resident_state":{  
+                       "type":"string",
+                      "description":"The state, province, district, or local area where the user to whom the person identification data relates currently resides."      
+                   },
+                   "resident_city":{  
+                       "type":"string"      
+                   },
+                   "resident_postal_code":{  
+                       "type":"string"      
+                   },
+                   "resident_street":{  
+                       "type":"string"      
+                   },
+                   "resident_house_number":{  
+                       "type":"string"      
+                   },
+                   "personal_administrative_number":{  
+                       "type":"string",      
+                       "description":"A value assigned to the natural person that is unique among all personal administrative numbers issued by the provider of person identification data. Where Member States opt to include this attribute, they shall describe in their electronic identification schemes under which the person identification data is issued, the policy that they apply to the values of this attribute, including, where applicable, specific conditions for the processing of this value."
+                   },
+                   "portrait":{  
+                       "type":"string",      
+                       "description":"Facial image of the wallet user compliant with ISO 19794-5 or ISO 39794 specifications.The image SHALL be encoded as binary data."
+                   },
+                   "family_name_birth":{  
+                       "type":"string",      
+                       "description":"Last name(s) or surname(s) of the person identification data user at the time of birth."
+                   },
+                   "given_name_birth":{  
+                       "type":"string",      
+                       "description":"First name(s), including middle name(s), of the person identification data user at the time of birth."
+                   },
+                   "sex":{  
+                       "type":"number",      
+                       "enum":[0,1,2,3,4,5,6,9],
+                       "description":"Values shall be one of the following: 0 = not known; 1 = male; 2 = female; 3 = other; 4 = inter; 5 = diverse; 6 = open; 9 = not applicable. For values 0, 1, 2 and 9, ISO/IEC 5218 applies.",
+                       "minLength": 1,
+                       "maxLength": 1
+                   },
+                   "email_address":{  
+                       "type":"string",      
+                       "description":"Electronic mail address of the user to whom the person identification data relates [in conformance with RFC 5322]."
+                   },
+                   "mobile_phone_number":{  
+                       "type":"string",      
+                       "description":"Mobile telephone number of the user to whom the person identification data relates, starting with the ‘+’ symbol as the international code prefix and the country code, followed by numbers only."
+                   },
+                   "issuance_date":{
+                     "type":"string",
+                     "description":"Date (and if possible time) when the person identification data was issued and/or the administrative validity period of the person identification data began. (specified only in the ARF PID rulebook). "
+                   },
+                   "age_over_18":{
+                     "type":"boolean",      
+                     "description":"Attesting whether the User to whom the person identification data relates is currently an adult (true) or a minor (false). (specified only in the ARF PID rulebook)."
+                   },
+                   "age_over_NN":{
+                     "type":"boolean",      
+                     "description":"Attesting whether the User to whom the person identification data relates is at least NN years old. N <> 18. (specified only in the ARF PID rulebook)."
+                   },
+                   "age_in_years":{
+                     "type":"number",      
+                     "description":"The current age of the User to whom the person identification data relates in years. (specified only in the ARF PID rulebook)."
+                   },
+                   "age_birth_year":{
+                     "type":"number",      
+                     "description":"The year when the User to whom the person identification data relates was born. (specified only in the ARF PID rulebook)."
+                   }
+                  },
+                  "required": [
+                      "family_name",
+                      "given_name",
+                      "birth_date",
+                      "birth_place",
+                      "nationality"
+                  ]
+              },
+              "credentialStatus": {
+                  "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
+                  "type": "object",
+                  "properties": {
+                      "id": {
+                          "description": "Exact identity for the credential status",
+                          "type": "string",
+                          "format": "uri"
+                      },
+                      "type": {
+                          "description": "Defines the revocation type extension",
+                          "type": "string"
+                      }
+                  },
+                  "required": [
+                      "id",
+                      "type"
+                  ]
+              },
+              "credentialSchema": {
+                  "description": "One or more schemas that validate the Verifiable Credential.",
+                  "anyOf": [
+                      {
+                          "$ref": "#/$defs/credentialSchema"
+                      },
+                      {
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/$defs/credentialSchema"
+                          }
+                      }
+                  ]
+              }
           }
-        },
-        "required": [
-          "given_name",
-          "family_name",
-          "birth_date",
-          "age_over_18",
-          "issuance_date",
-          "expiry_date",
-          "issuing_authority",
-          "issuing_country"
-        ]
-      },
-      "cryptographic_binding_methods_supported": {
-        "type": "array",
-        "items": { "type": "string" }
-      },
-      "display": {
-        "type": "array",
-        "items": {
+      }
+  ],
+  "required": [
+      "credentialSubject",
+      "credentialSchema",
+      "issuing_authority",
+      "issuer_country",
+      "expiry_date"
+  ],
+  "$defs": {
+      "credentialSchema": {
+          "description": "Contains information about the credential schema on which the issued credential is based",
           "type": "object",
           "properties": {
-            "name": { "type": "string" },
-            "locale": { "type": "string" },
-            "background_color": { "type": "string" },
-            "text_color": { "type": "string" },
-            "logo": {
-              "type": "object",
-              "properties": {
-                "uri": { "type": "string", "format": "uri" },
-                "alt_text": { "type": "string" }
+              "id": {
+                  "description": "References the credential schema stored on the Trusted Schemas Registry (TSR) on which the Verifiable Authorisation is based on",
+                  "type": "string",
+                  "format": "uri"
               },
-              "required": ["uri", "alt_text"]
-            }
-          },
-          "required": ["name", "locale", "background_color", "text_color", "logo"]
-        }
-      },
-      "credential_signing_alg_values_supported": {
-        "type": "array",
-        "items": { "type": "string" }
-      },
-      "format": {
-        "type": "string",
-        "enum": ["vc+sd-jwt"]
-      },
-      "vct": {
-        "type": "string",
-        "enum": ["VerifiablePIDSDJWT"]
-      },
-      "proof_types_supported": {
-        "type": "object",
-        "properties": {
-          "jwt": {
-            "type": "object",
-            "properties": {
-              "proof_signing_alg_values_supported": {
-                "type": "array",
-                "items": { "type": "string" }
+              "type": {
+                  "description": "Defines credential schema type",
+                  "type": "string",
+                  "enum": [
+                      "FullJsonSchemaValidator2021"
+                  ]
               }
-            },
-            "required": ["proof_signing_alg_values_supported"]
-          }
-        },
-        "required": ["jwt"]
+          },
+          "required": [
+              "id",
+              "type"
+          ]
       }
-    },
-    "required": [
-      "scope",
-      "claims",
-      "cryptographic_binding_methods_supported",
-      "display",
-      "credential_signing_alg_values_supported",
-      "format",
-      "vct",
-      "proof_types_supported"
-    ],
-    "definitions": {
-      "displayObject": {
-        "type": "object",
-        "properties": {
-          "display": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": { "type": "string" },
-                "locale": { "type": "string" }
-              },
-              "required": ["name", "locale"]
-            }
-          }
-        },
-        "required": ["display"]
-      }
-    }
   }
-  
+}
+

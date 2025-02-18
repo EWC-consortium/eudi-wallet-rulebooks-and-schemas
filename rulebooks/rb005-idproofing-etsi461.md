@@ -69,7 +69,7 @@ PhotoId is an example of a process like this: the passport could be read by NFC 
 In banking scenario is applicable for Customer Due Diligence (CDD) or Know-Your-Customer (KYC) processes.
 The business value of this attestation must be seeked also in the ability to represent an enablement of the ecosystem of the wallet in a transition and coexistence phase prior to the consolidation of EUDIW trust model and PID availability to all EU citizens. And of course it could enable the availability of different attributes and information than official PID ones, nowadays managed by actual available identification processes provided by local and EU QTSPs. So we assume that within the EUDIW framework, aside the PID there will be a collection of credential related to the official identity of the user like this one and all the others that for instance will represent a credential digital form of physical documents or eIDs. These credentials will be based on existing and certified identification or data verification processes that will enable the progressive adoption of EUDIW in existing business processes of everyday life.
 
-This credential includes subject identity data and ID document data. Because requirements for identity proofing may vary in different countries and some (Q)TSPs may have different preferences, this may lead to different data schemes. A first proposal is provided in [ds006]
+This credential includes subject identity data and ID document data. Because requirements for identity proofing may vary in different countries and some (Q)TSPs may have different preferences, this may lead to different data schemes. A first proposal is provided in [ds014]
 
 ### 1.4 Key words
 
@@ -120,7 +120,7 @@ Two objects are described in this attestation:
 1. credentialSubject: it represents the subject and his information that has been collected dureing the identification process; attribute names have been adapted to PID terminology 
 2. documentInfo: evidence references of the identity document used in the identification process
 
-The identity schema is available in the EWC schemas and rulebooks repository: [idproofing etsi 461 data schema](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/data-schemas/ds006-identity.json).
+The identity schema is available in the EWC schemas and rulebooks repository: [idproofing etsi 461 data schema](https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/blob/main/data-schemas/ds014-idproofing-etsi461.json).
 
 Of course this model could be extended with optional attributes according to specific information that could be present in different eu states on the document. 
 
@@ -153,7 +153,7 @@ This document defines the following attributes related to the identity document 
 
 ## 6. Trust infrastructure details
 
-In the ARF 1.4, the following information for Pub-EAAs and QEAAs Providers is given. 
+In the ARF 1.5, the following information for Pub-EAAs and QEAAs Providers is given. 
 Pub-EAAs and QEAAs Providers are trusted entities responsible to: 
 
 - Verify the identity of the EUDI Wallet User in compliance with LoA high requirements.
