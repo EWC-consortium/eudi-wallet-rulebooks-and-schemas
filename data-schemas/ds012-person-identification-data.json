@@ -10,7 +10,7 @@
       {
           "properties": {
               "issuing_authority": {
-                  "description": "Name of issuer from the MS that issued the ODI instance",
+                  "description": "Name of issuer from the MS that issued the PID instance",
                   "type": "string"
               },
               "issuing_country": {
