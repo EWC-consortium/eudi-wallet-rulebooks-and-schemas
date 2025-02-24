@@ -4,73 +4,63 @@
   "description": "Verifiable Credential for Perconal Contact Details.",
   "type": "object",
   "required": [
-    "traveler",
+    "surname",
+    "given_name",
+    "phone",
+    "email_address",
     "iss",
     "iat",
     "vct"
   ],
   "properties": {
-    "traveler": {
-      "title": "Traveler Personal Information",
-      "description": "Claims related to the traveler.",
-      "type": "object",
-      "required": [
-        "surname",
-        "given_name",
-        "phone",
-        "email_address"
-      ],
-      "properties": {
-        "surname": {
-          "type": "string",
-          "title": "Family Name",
-          "description": "The family name (surname) of the individual."
-        },
-        "given_name": {
-          "type": "string",
-          "title": "Given Name",
-          "description": "The given name (first name) of the individual."
-        },
-        "phone": {
-          "type": "string",
-          "title": "Phone Number",
-          "description": "The phone number of the individual, including country code if applicable."
-        },
-        "email_address": {
-          "type": "string",
-          "title": "Email Address",
-          "description": "The email address of the individual."
-        },
-        "city_address": {
-          "type": "string",
-          "title": "City Address",
-          "description": "The city of the individual's residence."
-        },
-        "street_address": {
-          "type": "string",
-          "title": "Street Address",
-          "description": "The street address of the individual's residence."
-        },
-        "country_address": {
-          "type": "string",
-          "title": "Country Address",
-          "description": "The country of the individual's residence."
-        }
-      }
-    },
-    "iss": {
+    "surname": {
       "type": "string",
-      "format": "uri"
+      "title": "Family Name",
+      "description": "The family name (surname) of the individual."
     },
-    "iat": {
-      "type": "integer"
-    },
-    "exp": {
-      "type": "integer"
-    },
-    "vct": {
+    "given_name": {
       "type": "string",
-      "const": "eu.europa.ec.eudi.pcd.1"
+      "title": "Given Name",
+      "description": "The given name (first name) of the individual."
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone Number",
+      "description": "The phone number of the individual, including country code if applicable."
+    },
+    "email_address": {
+      "type": "string",
+      "title": "Email Address",
+      "description": "The email address of the individual."
+    },
+    "city_address": {
+      "type": "string",
+      "title": "City Address",
+      "description": "The city of the individual's residence."
+    },
+    "street_address": {
+      "type": "string",
+      "title": "Street Address",
+      "description": "The street address of the individual's residence."
+    },
+    "country_address": {
+      "type": "string",
+      "title": "Country Address",
+      "description": "The country of the individual's residence."
     }
+  },
+  "iss": {
+    "type": "string",
+    "format": "uri"
+  },
+  "iat": {
+    "type": "integer"
+  },
+  "exp": {
+    "type": "integer"
+  },
+  "vct": {
+    "type": "string",
+    "const": "eu.europa.ec.eudi.pcd.1"
   }
 }
