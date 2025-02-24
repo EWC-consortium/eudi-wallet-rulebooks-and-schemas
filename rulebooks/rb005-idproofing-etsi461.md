@@ -11,7 +11,7 @@
     - [1.4 Key words](#14-key-words)
     - [1.5 Terminology](#15-terminology)
   - [2. IDProofing Etsi 119.461 Issuance process](#2-idproofing-etsi-119461-issuance-process)
-  - [3. IDProofing etsi461 Verification process](#3-idproofing-etsi461-verification-process)
+  - [3. IDProofing Etsi 119.461 Verification process](#3-idproofing-etsi-119461-verification-process)
   - [4. Revocation](#4-revocation)
   - [5. Identity attributes](#5-identity-attributes)
     - [5.1 Credential Subject attributes](#51-credential-subject-attributes)
@@ -96,7 +96,7 @@ The authorization phase could have two more alternative controls
 
 The end date of validity of the document must be set on that one of the credential.
 
-## 3. IDProofing etsi461 Verification process
+## 3. IDProofing Etsi 119.461 Verification process
 
 In a verification process, the integrity and validity of the attestation shall be checked.
 Whether a public document registry is available (and in this case should have been inquiried during the authorization/ identity proofing process), the validity of the identity document should be checked in the validation process.
