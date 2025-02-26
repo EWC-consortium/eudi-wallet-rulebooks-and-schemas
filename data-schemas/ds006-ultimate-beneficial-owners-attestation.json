@@ -131,7 +131,7 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "nature_of_interest": {
+                    "nature_of_control": {
                       "description": "Nature of the interest held by the UBO in the company.",
                       "type": "string",
                       "enum": [
@@ -169,7 +169,7 @@
                     }
                   },
                   "required": [
-                    "nature_of_interest",
+                    "nature_of_control",
                     "ownership_type",
                     "ownership_percentage",
                     "registrable_date"
