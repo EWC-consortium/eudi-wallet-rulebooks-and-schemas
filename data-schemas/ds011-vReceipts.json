@@ -1,0 +1,328 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "scope": {
+      "type": "string",
+      "enum": ["vReceipt"]
+    },
+    "claims": {
+      "type": "object",
+      "properties": {
+        "MonetaryTotal.lineExtensionAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "MonetaryTotal.taxInclusiveAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "MonetaryTotal.payableAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxTotal.taxSubtotal_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxTotal.taxAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Address.streetName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Address.cityName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Address.postcode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Address.countryIdentifier": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxCategory.taxScheme_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "ItemProperty.itemPropertyName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "ItemProperty.value": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxScheme.taxSchemeName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "AllowanceCharge.amount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "AllowanceCharge.allowanceChargeReason": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PartyName.name": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PaymentMeans.cardAccount_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PaymentMeans.paymentMeansCode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PartyIdentification.iD": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.paymentMeans_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.note": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.delivery_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.taxIncludedIndicator": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.taxTotal_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.accountingCustomerParty_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.documentCurrencyCode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.payment_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.sellerSupplierParty": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.legalMonetaryTotal": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.salesDocumentReference": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.iD": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.issueDate": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceipt.purchaseReceiptLine-1": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxSubtotal.taxableAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxSubtotal.taxSubtotalTaxAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxSubtotal.taxCategory_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "TaxSubtotal.percent": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Item.commodityClassification_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Item.itemInstance_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Item.additionalItemProperty": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Payment.authorizationID": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Payment.paidAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Payment.transactionID": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "SupplierParty.party_": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "SupplierParty.supplierPartyID": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Party.partyIdentification_.iD": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Party.partyName_.name": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Party.postalAddress_.streetName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Party.postalAddress_.cityName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Party.postalAddress_.postcode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Party.postalAddress_.countryIdentifier": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CommodityClassification.itemClassificationCode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CardAccount.networkID": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CardAccount.accountNumberID": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CustomerParty.party_.partyIdentification_.iD": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CustomerParty.party_.partyName_.name": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CustomerParty.party_.postalAddress_.streetName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CustomerParty.party_.postalAddress_.cityName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CustomerParty.party_.postalAddress_.postcode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "CustomerParty.party_.postalAddress_.countryIdentifier": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.item_.commodityClassification_.itemClassificationCode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.item_.itemInstance_.additionalItemProperty.itemPropertyName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.item_.itemInstance_.additionalItemProperty.value": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.quantity": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.allowanceCharge_.amount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.allowanceCharge_.allowanceChargeReason": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.taxInclusiveLineExtentionAmount": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "PurchaseReceiptLine.iD": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Delivery.actualDeliveryDate": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Delivery.deliveryAddress.streetName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Delivery.deliveryAddress.cityName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Delivery.deliveryAddress.postcode": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Delivery.deliveryAddress.countryIdentifier": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "Delivery.actualDeliveryTime": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "DocumentReference.iD": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "ItemInstance.additionalItemProperty.itemPropertyName": {
+          "$ref": "#/definitions/displayObject"
+        },
+        "ItemInstance.additionalItemProperty.value": {
+          "$ref": "#/definitions/displayObject"
+        }
+      }
+    },
+    "cryptographic_binding_methods_supported": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "display": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "locale": { "type": "string" },
+          "background_color": { "type": "string" },
+          "text_color": { "type": "string" },
+          "logo": {
+            "type": "object",
+            "properties": {
+              "uri": { "type": "string", "format": "uri" },
+              "alt_text": { "type": "string" }
+            },
+            "required": ["uri", "alt_text"]
+          }
+        },
+        "required": ["name", "locale", "background_color", "text_color", "logo"]
+      }
+    },
+    "credential_signing_alg_values_supported": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "format": {
+      "type": "string",
+      "enum": ["vc+sd-jwt"]
+    },
+    "vct": {
+      "type": "string",
+      "enum": ["VerifiablevReceiptSDJWT"]
+    },
+    "proof_types_supported": {
+      "type": "object",
+      "properties": {
+        "jwt": {
+          "type": "object",
+          "properties": {
+            "proof_signing_alg_values_supported": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["proof_signing_alg_values_supported"]
+        }
+      },
+      "required": ["jwt"]
+    }
+  },
+  "required": [
+    "scope",
+    "claims",
+    "cryptographic_binding_methods_supported",
+    "display",
+    "credential_signing_alg_values_supported",
+    "format",
+    "vct",
+    "proof_types_supported"
+  ],
+  "definitions": {
+    "displayObject": {
+      "type": "object",
+      "properties": {
+        "display": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "locale": { "type": "string" }
+            },
+            "required": ["name", "locale"]
+          }
+        }
+      },
+      "required": ["display"]
+    }
+  }
+}
