@@ -61,6 +61,8 @@ In order to meet a vast field of application, it could be useful and easier to k
 In any case this type of credential could be a valid example of QEAA, according to the fact that QTSPs have the ability to issue credentials with a LoIP high similar to the PID. 
 PhotoId is an example of a process like this: the passport could be read by NFC (in this case the loip would be high) or through OCR (optical scanning) according to ETSI TS 119.461 requirements. 
 
+Nonetheless in the ARF ch 6.6.3.9 "Relying Party Instance verifies or trusts User binding" [6] is well described the necessity of a Relying Party of a live and active presence verification bound to a PID presentation of the subject. This verification attestation could be offered by a QEAA to enforce the identification process, so different use cases could extend this basic proposal in order to meet business necessities.
+
 The business value of this attestation must be seeked also in the ability to represent an enablement of the ecosystem of the wallet in a transition and coexistence phase prior to the consolidation of EUDIW trust model and PID availability to all EU citizens in private contexts. And of course it could enable the availability of different attributes and information than official PID ones, nowadays managed by actual available identification processes provided by local and EU QTSPs. So we assume that within the EUDIW framework, aside the PID there will be a collection of credential related to the official identity of the user like this one and all the others that for instance will represent a credential digital form of physical documents or eIDs. These credentials will be based on existing and certified identification or data verification processes that will enable the progressive adoption of EUDIW in existing business processes of everyday life.
 
 This credential includes subject identity data and ID document data. Because requirements for identity proofing may vary in different countries and some (Q)TSPs may have different preferences, this may lead to different data schemes. A first proposal is provided in [ds014].
@@ -159,8 +161,9 @@ A QTSP register is expected with all services that's entitled to offer and their
 
 ## 6. References
 
-- RFC-001: [Issue Verifiable Credential](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc001-issue-verifiable-credential.md)
-- RFC-002: [Present Verifiable Credentials](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc002-present-verifiable-credentials.md)
-- SD-JWT VC: [SD-JWT VC Specification](https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/)
-- OpenID4VP: [OpenID4VP Specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html)
-- D4.6 Annex 5 : [D4.6 Annex 5](https://nextcloud.ewc-consortium.eu/apps/files/files/131128?dir=/EWC/WP4%20Interoperability%20and%20infrastructure/Task%204.3/Deliverable%20D4.6/Annexes&openfile=true)
+1. RFC-001: [Issue Verifiable Credential](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc001-issue-verifiable-credential.md)
+2. RFC-002: [Present Verifiable Credentials](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc002-present-verifiable-credentials.md)
+3. SD-JWT VC: [SD-JWT VC Specification](https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/)
+4. OpenID4VP: [OpenID4VP Specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html)
+5. D4.6 Annex 5 : [D4.6 Annex 5](https://nextcloud.ewc-consortium.eu/apps/files/files/131128?dir=/EWC/WP4%20Interoperability%20and%20infrastructure/Task%204.3/Deliverable%20D4.6/Annexes&openfile=true)
+6. ARF v1.6 [https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/latest/architecture-and-reference-framework-main](https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/latest/architecture-and-reference-framework-main)
