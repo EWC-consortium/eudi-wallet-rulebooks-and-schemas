@@ -29,7 +29,8 @@ Here is the list of all Rulebooks defined and used within the EWC scope and thei
 | RB-001         | [Legal Person Identification Data (LPID) Rulebook](/rulebooks/rb001-legal-person-identification-data.md) | Approved                                |
 | RB-002         | [EU Company Certificate Data Rulebook](/rulebooks/rb002_eu_company_certificate.md)                       | Approved                                |
 | RB-003         | [IBAN Data Rulebook](/rulebooks/rb003_IBAN_attestation.md)                                               | Approved                                |
-| RB-004         | [Signatory Rights Rulebook](/rulebooks/rb004_signatory_rights.md)                                        | Approved                                |
+| RB-004         | [Signatory Rights Rulebook](/rulebooks/rb_004_signatory_rights.md)                                       | Approved                                |
+| RB-005         | [Ultimate Beneficial Rulebook](/rulebooks/rb_005_ultimate_beneficial_owners.md)                          | Under development                       |
 
 ## Data Schemas
 
@@ -41,11 +42,11 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | DS-002             | [IBAN attestation](/data-schemas/ds002-iban-attestation.json)                                 | Approved                                |
 | DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)                     | Approved                                |
 | DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)                        | Approved                                |
-| DS-005             | [Photo ID](/data-schemas/ds005-photo-id-travel-document.json)                                 | Approved                                |
+| DS-005             | [Ferry Boarding Pass](/data-schemas/ds005-ferry-boarding-pass.json)                           | Approved                                |
 | DS-006             | [Ultimate Beneficial Owners](/data-schemas/ds006-ultimate-beneficial-owners-attestation.json) | Approved                                |
 | DS-007             | [Payment Wallet Attestation](/data-schemas/ds007-payment-wallet-attestation.json)             | Approved                                |
 | DS-008             | [Payment Data Confirmation ](/data-schemas/ds008-payment-data-confirmation.json)              | Approved                                |
-| DS-009             | [Personal Contct Details ](/data-schemas/ds009-personal-contact-details-document.json)        | Approved                                |
+| DS-009             | [Personal Contact Details ](/data-schemas/ds009-personal-contact-details-document.json)        | Approved                                |
 | DS-010             | [Student ID](/data-schemas/ds010-student-id.json)                                             | Approved                                |
 | DS-011             | [Verifiable Receipts](/data-schemas/ds011-vReceipts.json)                                     | Approved                                |
 | DS-012             | [Person Identification Data](/data-schemas/ds012-person-identification-data.json)             | Approved                                |
