@@ -39,7 +39,7 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 | **Data Schemas #** | **Data Schemas Title**                                                                        | **Status (Under Development/Approved)** |
 | ------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------- |
 | DS-001             | [EU Company Certificate](/data-schemas/ds001-eu-company-certificate.json)                     | Approved                                |
-| DS-002             | [IBAN attestation](/data-schemas/ds002-iban-attestation.json)                                 | Approved                                |
+| DS-002             | [IBAN attestation](/data-schemas/ds002-iban-attestation.json) (V2)                                | Approved                                |
 | DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)                     | Approved                                |
 | DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)                        | Approved                                |
 | DS-005             | [Ferry Boarding Pass](/data-schemas/ds005-ferry-boarding-pass.json)                           | Approved                                |
