@@ -198,19 +198,28 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/$defs/legal_representative.natural_person"
+            "type": "object",
+            "properties": {
+              "representative": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/legal_representative.natural_person"
+                  },
+                  {
+                    "$ref": "#/$defs/legal_representative.legal_person"
+                  }
+                ]
               },
-              {
-                "$ref": "#/$defs/legal_representative.legal_person"
+              "signatory_rule": {
+                "$ref": "#/$defs/signatory_rule"
               }
-            ]
+            },
+            "required": ["representative", "signatory_rule"]
           }
         }
       },
       "required": [
-        "legal_entity",
+        "legal_person",
         "legal_representative"
       ]
     },
@@ -283,6 +292,14 @@
         "type"
       ]
     },
+    "signatory_rule": {
+      "description": "Information if the representative can engage the company alone or jointly",
+      "type": "string",
+      "enum": [
+        "alone",
+        "joint"
+      ]
+    },
     "legal_representative.natural_person": {
       "description": "Details about the representative of the company if incarnated by a natural person",
       "type": "object",
@@ -299,20 +316,11 @@
         "nationality": {
           "description": "Nationality of the natural person representing the company",
           "type": "string"
-        },
-        "signatory_rule": {
-          "description": "Information if the representative can engage the company alone or jointly",
-          "type": "string",
-          "enum": [
-            "alone",
-            "joint"
-          ]
         }
       },
       "required": [
         "full_name",
-        "date_of_birth",
-        "signatory_rule"
+        "date_of_birth"
       ]
     },
     "legal_representative.legal_person": {
