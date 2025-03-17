@@ -196,6 +196,7 @@
         "legal_representative": {
           "description": "Information about any person authorized by the company to represent it alone or jointly",
           "type": "array",
+          "minItems": 1,
           "items": {
             "oneOf": [
               {
