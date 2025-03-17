@@ -178,6 +178,10 @@
                   "description": "Details of the company email",
                   "type": "string",
                   "format": "email"
+                },
+                "contact_telephone": {
+                  "description": "Details of the company phone number",
+                  "type": "string"
                 }
               }
             }
