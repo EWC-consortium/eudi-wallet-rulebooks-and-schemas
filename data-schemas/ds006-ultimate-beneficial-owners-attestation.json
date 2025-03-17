@@ -121,6 +121,7 @@
                 "required": [
                   "family_name",
                   "first_name",
+                  "identifier",
                   "birth_date",
                   "postal_address"
                 ]
