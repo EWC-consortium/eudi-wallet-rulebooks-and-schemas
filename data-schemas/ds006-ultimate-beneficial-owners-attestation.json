@@ -3,46 +3,12 @@
   "title": "EWC - Ultimate Beneficial Owner",
   "description": "Schema for Ultimate Beneficial Owner - EWC WP3",
   "type": "object",
-  "properties": {
-    "issuing_authority": {
-      "description": "Name of the public sector body or private entity that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
-      "type": "string"
-    },
-    "issuing_authority_id": {
-      "description": "EUID of the issuing authority. (Business register identifier for BRIS)",
-      "type": "string"
-    },
-    "issuing_country": {
-      "description": "Alpha-2 country code, as defined in ISO 3166-1, of the issuing country or territory.",
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 2
-    },
-    "issuing_jurisdiction": {
-      "description": "Country subdivision code of the jurisdiction that issued the credential instance, as defined in ISO 3166-2:2020, Clause 8. The first part of the code SHALL be the same as the value for issuing_country.",
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 6
-    },
-    "issuance_date": {
-      "description": "Date and possibly time of issuance.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "expiry_date": {
-      "description": "Date and possibly time of credential expiration.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "authentic_source_id": {
-      "description": "EUID for the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
-      "type": "string"
-    },
-    "authentic_source_name": {
-      "description": "Name of the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
-      "type": "string"
-    },
-    "credentialSubject": {
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/refs/heads/main/data-schemas/common/ds004-legal-person-identification-data.json"
+    }
+  ],
+    "credential_subject": {
       "description": "Attributes about the legal person and the beneficial ownership.",
       "type": "object",
       "properties": {
@@ -77,6 +43,7 @@
         "ultimate_beneficial_owner": {
           "description": "Details of the Ultimate Beneficial Owner(s) of the company.",
           "type": "array",
+          "minItems": 1,
           "items": {
             "type": "object",
             "properties": {
@@ -143,14 +110,27 @@
                     },
                     "ownership_type": {
                       "description": "The type of ownership held by the UBO (e.g., direct, indirect).",
-                      "type": "string",
+                      "type:"string",
                       "enum": ["direct", "indirect", "both"]
                     },
                     "ownership_percentage": {
-                      "description": "The percentage of ownership held by the UBO in the company. Must be between 0 and 100.",
-                      "type": "number",
-                      "minimum": 0,
-                      "maximum": 100
+                      "description": "The percentage of ownership held by the UBO in the company. Must be between 0 and 100, expressed in number or in brackets.",
+                      "type": "object",
+                      "properties":{
+                        "myAttribute":{
+                          "oneOf":[
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "type:"string",
+                              "enum": ["0-25", "25-50", "50-75","75-100"]
+                            }
+                          ]
+                        }
+                      }
                     },
                     "registrable_date": {
                       "description": "Date when the UBO’s interest was registered.",
@@ -183,7 +163,7 @@
       },
       "required": ["legal_person", "ultimate_beneficial_owner"]
     },
-    "credentialStatus": {
+    "credential-status": {
       "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
       "type": "object",
       "properties": {
@@ -202,35 +182,28 @@
         "type"
       ]
     },
-    "credentialSchema": {
+    "credential_schema": {
       "description": "One or more schemas that validate the Verifiable Credential.",
       "anyOf": [
         {
-          "$ref": "#/$defs/credentialSchema"
+          "$ref": "#/$defs/credential_schema"
         },
         {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/credentialSchema"
+            "$ref": "#/$defs/credential_schema"
           }
         }
       ]
     }
   },
   "required": [
-    "credentialSubject",
-    "credentialStatus",
-    "credentialSchema",
-    "issuing_authority",
-    "issuing_authority_id",
-    "issuing_country",
-    "issuance_date",
-    "expiry_date",
-    "authentic_source_id",
-    "authentic_source_name"
+    "credential_subject",
+    "credential_status",
+    "credential_schema"
   ],
   "$defs": {
-    "credentialSchema": {
+    "credential_schema": {
       "description": "Contains information about the credential schema on which the issued credential is based",
       "type": "object",
       "properties": {
