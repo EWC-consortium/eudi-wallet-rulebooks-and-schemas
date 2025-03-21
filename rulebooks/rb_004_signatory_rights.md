@@ -81,14 +81,13 @@ For businesses, a legal representative can be a director, officer, or another pe
 
 In the EWC context, a generic attestation issuance process has been described by wallet providers in the pilots. Those controls and generic steps are described in [RFC-001](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc001-issue-verifiable-credential.md).
 
-**Disclamer** : *the following section has not been agreed by Business Registries and still include open questions that require feedback.*
+**Disclamer** : *the following section still include open subjects that require feedback.*
 The list of the considered rules for the issuance of the signatory rights attestation :
 
-- Can the Signatory Rights attestation only be requested by the signatory himself with a presentation of a high level of insurance PID attestation ? Therefore this attestation can only be issued to a EUDI valid wallet (organizational or natural).
-- Can the signatory rights attestation refer to only one Signatory or all the Signatories in the context of this pilot ?
-- Can the signatory rights attestation only refer to Signatories having a direct link to the company ? For example if a natural person has a signatory right over a company through a legal person; this natural person will not be mentionned on the signatory right attestation of the company. But it will be in the attestation concerning the legal entity he has direct signatory rights over.
-- The signatory rights attestation has to be issued to the EUDI wallet that possess the rights over a company or to the EUDI wallet of the company concerned byt the rights ?
-In the EWC pilot context, the Signatory rights attestation can be issued with any identity attestation presentation and either to an organizational wallet or a natural person wallet
+The Signatory rights attestation can be issued with any authentification or substancial identity verification and either to an organizational wallet or a natural person wallet.
+If issued to a natural person wallet, the attestation must only list one signatory, the person requesting it. If issued to the legal person wallet, the attestation can list all the signatories.
+
+In the EWC pilot context, the management of complex signatory rights and indirect natural person signatories (for example : company A has company B as a signatory which has company C as a signatory and the natural person D is the signatory of company C), has not been in the scope for revocation and data chaining reasons.
 
 ## 3 Signatory Rights Verification process
 In the EWC context, a generic attestation verification process has been described by wallet providers in the pilots. Those controls and generic steps are described in [RFC-002](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc002-present-verifiable-credentials.md).
