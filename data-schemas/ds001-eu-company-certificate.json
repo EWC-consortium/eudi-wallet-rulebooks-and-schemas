@@ -3,46 +3,12 @@
   "title": "EWC - EU Company Certificate",
   "description": "Schema for EU Company Certificate -  EWC WP3",
   "type": "object",
-  "properties": {
-    "issuing_authority": {
-      "description": "Name of the administrative authority that has issued this credential instance, or the ISO 3166 Alpha-2 country code of the respective Member State if there is no separate authority authorized to issue this credential.",
-      "type": "string"
-    },
-    "issuing_authority_id": {
-      "description": "EUID of the issuing authority. (Business register identifier for BRIS)",
-      "type": "string"
-    },
-    "issuing_country": {
-      "description": "Alpha-2 country code, as defined in ISO 3166-1, of the issuing country or territory.",
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 2
-    },
-    "issuing_jurisdiction": {
-      "description": "Country subdivision code of the jurisdiction that issued the credential instance, as defined in ISO 3166-2:2020, Clause 8. The first part of the code SHALL be the same as the value for issuing_country.",
-      "type": "string",
-      "minLength": 2,
-      "maxLength": 6
-    },
-    "issuance_date": {
-      "description": "Date and possibly time of issuance",
-      "type": "string",
-      "format": "date-time"
-    },
-    "expiry_date": {
-      "description": "Date and possibly time of credential expiration",
-      "type": "string",
-      "format": "date-time"
-    },
-    "authentic_source_id": {
-      "description": "EUID for the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
-      "type": "string"
-    },
-    "authentic_source_name": {
-      "description": "Name of the public sector body or private entity responsible for an authentic source that is a repository or system, considered to be the primary source of information or recognized as authentic in national law.",
-      "type": "string"
-    },
-    "credentialSubject": {
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/refs/heads/main/data-schemas/common/ds004-legal-person-identification-data.json"
+    }
+  ],
+    "credential_subject": {
       "description": "Attributes representing a Legal Entity",
       "type": "object",
       "properties": {
@@ -138,7 +104,7 @@
                 }
               }
             },
-            "legal_entity_status": {
+            "legal_person_status": {
               "description": "Status of the company as defined in national law and where recorded in the national register",
               "type": "string",
               "enum": [
@@ -146,21 +112,21 @@
                 "inactive"
               ]
             },
-            "legal_entity_activity": {
+            "legal_person_activity": {
               "description": "Object of the company describing its main activity or activities, which must be expressed using the Statistical Classification of Economic Activities in the European Community (NACE)",
               "type": "object",
               "properties": {
                 "code": {
-                  "description": "Legal entity activity NACE code",
+                  "description": "Legal person activity NACE code",
                   "type": "string"
                 },
                 "description": {
-                  "description": "Short description of the legal entity activity",
+                  "description": "Short description of the legal person activity",
                   "type": "string"
                 }
               }
             },
-            "legal_entity_duration": {
+            "legal_person_duration": {
               "description": "Duration of the company, where its duration is limited",
               "type": "string",
               "format": "date"
@@ -189,8 +155,8 @@
             "registration_member_state",
             "registered_address",
             "registration_date",
-            "legal_entity_status",
-            "legal_entity_activity"
+            "legal_person_status",
+            "legal_person_activity"
           ]
         },
         "legal_representative": {
@@ -209,11 +175,11 @@
         }
       },
       "required": [
-        "legal_entity",
+        "legal_person",
         "legal_representative"
       ]
     },
-    "credentialStatus": {
+    "credential_status": {
       "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
       "type": "object",
       "properties": {
@@ -232,35 +198,28 @@
         "type"
       ]
     },
-    "credentialSchema": {
+    "credential_schema": {
       "description": "One or more schemas that validate the Verifiable Credential.",
       "anyOf": [
         {
-          "$ref": "#/$defs/credentialSchema"
+          "$ref": "#/$defs/credential_schema"
         },
         {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/credentialSchema"
+            "$ref": "#/$defs/credential_schema"
           }
         }
       ]
     }
   },
   "required": [
-    "credentialSubject",
-    "credentialStatus",
-    "credentialSchema",
-    "issuing_authority",
-    "issuing_authority_id",
-    "issuing_country",
-    "issuance_date",
-    "expiry_date",
-    "authentic_source_id",
-    "authentic_source_name"
+    "credential_subject",
+    "credential_status",
+    "credential_schema"
   ],
   "$defs": {
-    "credentialSchema": {
+    "credential_schema": {
       "description": "Contains information about the credential schema on which the issued credential is based",
       "type": "object",
       "properties": {
@@ -329,12 +288,20 @@
         "legal_form_type": {
           "description": "Legal form of the company",
           "type": "string"
-        }
+        },
+        "signatory_rule": {
+          "description": "Information if the representative can engage the company alone or jointly",
+          "type": "string",
+          "enum": [
+            "alone",
+            "joint"
+          ]
       },
       "required": [
         "legal_person_name",
         "legal_person_id",
-        "legal_form_type"
+        "legal_form_type",
+        "signatory_rule"
       ]
     }
   }
