@@ -115,7 +115,6 @@ This table contains the name of the attribute, its description, and whether the 
 | legal_entity_duration | Duration of the company, if limited. | No |
 | contact_point | Correspondence address of the company, such as email or postal address (full or partial). | No |
 | contact_email | Details of the company email address. | No |
-| contact_telephone | Details of the company phone number. | No |
 | contact_page | Details of the company website. | No |
 | legal_representative | Information about the person(s) authorized to represent the company, either individually or jointly. | Yes |
 | legal_representative.natural_person | Details about the natural person representing the company. | No |
