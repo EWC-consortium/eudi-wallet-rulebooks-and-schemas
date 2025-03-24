@@ -38,12 +38,12 @@ Here is the list of all Data Schemas defined and used within the EWC scope and t
 
 | **Data Schemas #** | **Data Schemas Title**                                                                        | **Status (Under Development/Approved)** |
 | ------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------- |
-| DS-001             | [EU Company Certificate](/data-schemas/ds001-eu-company-certificate.json)                     | Approved                                |
+| DS-001             | [EU Company Certificate](/data-schemas/ds001-eu-company-certificate.json) (V2)                     | Approved                                |
 | DS-002             | [IBAN attestation](/data-schemas/ds002-iban-attestation.json) (V2)                                | Approved                                |
-| DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json)                     | Approved                                |
+| DS-003             | [Signatory Rights](/data-schemas/ds003-signatory-rights-attestation.json) (V2)                     | Approved                                |
 | DS-004             | [Legal PID](/data-schemas/ds004-legal-person-identification-data.json)                        | Approved                                |
 | DS-005             | [Ferry Boarding Pass](/data-schemas/ds005-ferry-boarding-pass.json)                           | Approved                                |
-| DS-006             | [Ultimate Beneficial Owners](/data-schemas/ds006-ultimate-beneficial-owners-attestation.json) | Approved                                |
+| DS-006             | [Ultimate Beneficial Owners](/data-schemas/ds006-ultimate-beneficial-owners-attestation.json) (V2)  | Approved                                |
 | DS-007             | [Payment Wallet Attestation](/data-schemas/ds007-payment-wallet-attestation.json)             | Approved                                |
 | DS-008             | [Payment Data Confirmation ](/data-schemas/ds008-payment-data-confirmation.json)              | Approved                                |
 | DS-009             | [Personal Contact Details ](/data-schemas/ds009-personal-contact-details-document.json)        | Approved                                |
