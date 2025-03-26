@@ -13,19 +13,13 @@
       "type": "object",
       "properties": {
         "legal_person_name": {
-              "description": "Official current legal person name as registered in the business register.",
-              "type": "string"
-            },
-            "legal_person_id": {
-              "description": "Unique id for organisations in EUID structure",
-              "type": "string"
-            }
-          },
-          "required": [
-            "legal_person_name",
-            "legal_person_id"
-          ]
-        },   
+          "description": "Official current legal person name as registered in the business register.",
+          "type": "string"
+        },
+        "legal_person_id": {
+          "description": "Unique id for organisations in EUID structure",
+          "type": "string"
+        },
         "signatory_rights": {
           "description": "Information about the person and its signatory right about the legal entity",
           "type": "array",
@@ -35,14 +29,15 @@
                 "$ref": "#/$defs/signatory_rights.held_by_person"
               },
               {
-                "$ref": "#/$defs/signatory_rights.Held_by_legal_person"
+                "$ref": "#/$defs/signatory_rights.held_by_legal_person"
               }
             ]
           }
         }
       },
       "required": [
-        "legal_entity",
+        "legal_person_name",
+        "legal_person_id",
         "signatory_rights"
       ]
     },
@@ -109,6 +104,14 @@
         "type"
       ]
     },
+    "signatory_rule_def": {
+      "description": "Information if the signatory can engage the company alone or jointly",
+      "type": "string",
+      "enum": [
+        "alone",
+        "joint"
+      ]
+    },
     "signatory_rights.held_by_person": {
       "description": "Details about the signatory of the company and his right if incarnated by a physical person",
       "type": "object",
@@ -127,12 +130,8 @@
           "type": "string"
         },
         "signatory_rule": {
-              "description": "Information if the signatory can engage the company alone or jointly",
-              "type": "string",
-              "enum": [
-                "alone"
-              ]
-            },
+          "$ref": "#/$defs/signatory_rule_def"
+        },
         "post": {
           "description": "Role of the person",
           "type": "array",
@@ -160,25 +159,20 @@
         "signatory_rule"
       ]
     },
-    "signatory_rights.Held_by_legal_person": {
+    "signatory_rights.held_by_legal_person": {
       "description": "Details about the representative of the company and its right if incarnated by a legal person",
       "type": "object",
       "properties": {
         "legal_person_name": {
-              "description": "Official current legal person name as registered in the business register.",
-              "type": "string"
-            },
-            "legal_person_id": {
-              "description": "Unique id for organisations in EUID structure",
-              "type": "string"
-            },
+          "description": "Official current legal person name as registered in the business register.",
+          "type": "string"
+        },
+        "legal_person_id": {
+          "description": "Unique id for organisations in EUID structure",
+          "type": "string"
         },
         "signatory_rule": {
-          "description": "Information if the signatory can engage the company alone or jointly",
-          "type": "string",
-          "enum": [
-            "alone"
-            ]
+          "$ref": "#/$defs/signatory_rule_def"
         },
         "post": {
           "description": "Role of the person",
@@ -199,7 +193,7 @@
           "required": [
             "name"
           ]
-          }
+        }
       },
       "required": [
         "legal_person_name",
