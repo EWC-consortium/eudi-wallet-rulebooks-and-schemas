@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:eudi:pid:1",
   "title": "EWC - Physical PID",
   "description": "Schema for Physical PID -  EWC WP3",
   "type": "object",
@@ -30,7 +31,7 @@
                   "type": "string",
                   "format": "datetime"
               },
-              "expiry_date": {
+              "date_of_expiry": {
                   "description": "Date and possibly time of PID expiration",
                   "format": "datetime"
               },
@@ -38,16 +39,12 @@
                 "type":"string",
                 "description": "A number for the person identification data, assigned by the provider of person identification data."   
               },
-              "location_status":{  
-                "type":"string",
-                "description": "The location of validity status information on the person identification data where the providers of person identification data revoke person identification data."   
-               },
              "trust_anchor":{
                "type":"string",      
                "description":"This attribute indicates at least the URL at which a machine-readable version of the trust anchor to be used for verifying the PID can be found or looked up. Note: This attribute corresponds to the location meant in Annex V point h) or Annex VII point h) of the [European Digital Identity Regulation], which is mandatory for QEAAs. This PID Rulebook add this as an optional attribute for PIDs as well, so PID Providers are able to ensure that PIDs can be validated by Relying Parties in the same manner as QEAAs. (specified only in the ARF PID rulebook)."
              },
              "credentialSubject": {
-                  "description": "Attributes representing a Physical PID",
+                  "description": "Attributes representing a Physical PID (this container object could be omitted?)",
                   "type": "object",
                   "properties": {
                     "family_name":{  
@@ -56,56 +53,86 @@
                    "given_name":{  
                       "type":"string"
                    },
-                   "birth_date":{  
+                   "birthdate":{  
                       "type":"date"      
                    },
-                   "birth_place":{  
-                      "type":"string"  ,
-                      "description":"The country as an alpha-2 country code as specified in ISO 3166-1, or the state, province, district, or local area or the municipality, city, town, or village where the user to whom the person identification data relates was born."    
+                   "place_of_birth":{  
+                      "type":"object"  ,
+                      "properties":{
+                        "country":{  
+                            "description":"The country as an alpha-2 country code as specified in ISO 3166-1, or the state, province, district, or local area or the municipality, city, town, or village where the user to whom the person identification data relates was born.",    
+                            "type":"string"
+                          },
+                        "region":{  
+                            "description":"for the state, province or other region",    
+                            "type":"string"
+                        },
+                        "locality":{  
+                            "description":"for the city or other locality",    
+                            "type":"string"
+                        }
+                      }
                    },
-                   "nationality":{  
-                      "type":"string" ,    
-                      "description":"One or more alpha-2 country codes as specified in ISO 3166-1, representing the nationality of the user to whom the person identification data relates." 
+                   "nationalities":{  
+                        "type": "array",
+                             "items": {
+                             "type": "string"
+                        }  , 
+                        "description":"One or more alpha-2 country codes as specified in ISO 3166-1, representing the nationality of the user to whom the person identification data relates." 
                    },
-                   "resident_address":{
-                      "type":"string",
-                      "description":"The full address of the place where the user to whom the person identification data relates currently resides or can be contacted (street name, house number, city etc.)"
+                   "address":{  
+                      "type":"object"  ,
+                      "properties":{
+                        "formatted":{  
+                            "description":"The full address of the place where the user to whom the person identification data relates currently resides or can be contacted (street name, house number, city etc.)",    
+                            "type":"string"
+                          },
+                        "country":{  
+                            "description":"The country where the user to whom the person identification data relates currently resides, as an alpha-2 country code as specified in ISO 3166-1.",    
+                            "type":"string"
+                          },
+                        "region":{  
+                            "description":"for the state, province or other region",    
+                            "type":"string"
+                        },
+                        "locality":{  
+                            "description":"for the city or other locality",    
+                            "type":"string"
+                        },
+                        "postal_code":{  
+                            "type":"string"      
+                        },
+                        "street_address":{  
+                            "type":"string"      
+                        },
+                        "house_number":{  
+                            "type":"string"      
+                        }
+                      }
                    },
-                   "resident_country":{  
-                      "type":"string",
-                      "description":"The country where the user to whom the person identification data relates currently resides, as an alpha-2 country code as specified in ISO 3166-1."      
+                   "birth_family_name":{  
+                       "type":"string",      
+                       "description":"Last name(s) or surname(s) of the person identification data user at the time of birth."
                    },
-                   "resident_state":{  
-                       "type":"string",
-                      "description":"The state, province, district, or local area where the user to whom the person identification data relates currently resides."      
+                   "birth_given_name":{  
+                       "type":"string",      
+                       "description":"First name(s), including middle name(s), of the person identification data user at the time of birth."
                    },
-                   "resident_city":{  
-                       "type":"string"      
+                   "email":{  
+                       "type":"string",      
+                       "description":"Electronic mail address of the user to whom the person identification data relates [in conformance with RFC 5322]."
                    },
-                   "resident_postal_code":{  
-                       "type":"string"      
+                   "phone_number":{  
+                       "type":"string",      
+                       "description":"Mobile telephone number of the user to whom the person identification data relates, starting with the ‘+’ symbol as the international code prefix and the country code, followed by numbers only."
                    },
-                   "resident_street":{  
-                       "type":"string"      
-                   },
-                   "resident_house_number":{  
-                       "type":"string"      
+                   "picture":{  
+                       "type":"string",      
+                       "description":"Facial image of the wallet user compliant with ISO 19794-5 or ISO 39794 specifications.The image SHALL be encoded as binary data."
                    },
                    "personal_administrative_number":{  
                        "type":"string",      
                        "description":"A value assigned to the natural person that is unique among all personal administrative numbers issued by the provider of person identification data. Where Member States opt to include this attribute, they shall describe in their electronic identification schemes under which the person identification data is issued, the policy that they apply to the values of this attribute, including, where applicable, specific conditions for the processing of this value."
-                   },
-                   "portrait":{  
-                       "type":"string",      
-                       "description":"Facial image of the wallet user compliant with ISO 19794-5 or ISO 39794 specifications.The image SHALL be encoded as binary data."
-                   },
-                   "family_name_birth":{  
-                       "type":"string",      
-                       "description":"Last name(s) or surname(s) of the person identification data user at the time of birth."
-                   },
-                   "given_name_birth":{  
-                       "type":"string",      
-                       "description":"First name(s), including middle name(s), of the person identification data user at the time of birth."
                    },
                    "sex":{  
                        "type":"number",      
@@ -114,25 +141,18 @@
                        "minLength": 1,
                        "maxLength": 1
                    },
-                   "email_address":{  
-                       "type":"string",      
-                       "description":"Electronic mail address of the user to whom the person identification data relates [in conformance with RFC 5322]."
-                   },
-                   "mobile_phone_number":{  
-                       "type":"string",      
-                       "description":"Mobile telephone number of the user to whom the person identification data relates, starting with the ‘+’ symbol as the international code prefix and the country code, followed by numbers only."
-                   },
-                   "issuance_date":{
-                     "type":"string",
-                     "description":"Date (and if possible time) when the person identification data was issued and/or the administrative validity period of the person identification data began. (specified only in the ARF PID rulebook). "
-                   },
                    "age_over_18":{
                      "type":"boolean",      
                      "description":"Attesting whether the User to whom the person identification data relates is currently an adult (true) or a minor (false). (specified only in the ARF PID rulebook)."
                    },
-                   "age_over_NN":{
-                     "type":"boolean",      
-                     "description":"Attesting whether the User to whom the person identification data relates is at least NN years old. N <> 18. (specified only in the ARF PID rulebook)."
+                   "age_equal_or_over":{
+                     "type":"object"  ,
+                     "properties":{
+                        "16":"boolean",
+                        "18":"boolean",
+                        "21":"boolean",
+                        "65":"boolean"
+                     }
                    },
                    "age_in_years":{
                      "type":"number",      
@@ -146,9 +166,8 @@
                   "required": [
                       "family_name",
                       "given_name",
-                      "birth_date",
-                      "birth_place",
-                      "nationality"
+                      "birthdate",
+                      "nationalities"
                   ]
               },
               "credentialStatus": {
@@ -192,7 +211,7 @@
       "credentialSchema",
       "issuing_authority",
       "issuer_country",
-      "expiry_date"
+      "date_of_expiry"
   ],
   "$defs": {
       "credentialSchema": {
