@@ -1,0 +1,206 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EWC - Signatory Rights",
+    "description": "Schema for Signatory Rights -  EWC WP3",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/refs/heads/main/data-schemas/common/ds004-legal-person-identification-data.json"
+        }
+    ],
+    "credential_subject": {
+        "description": "Attributes describing the legal representation of a legal entity",
+        "type": "object",
+        "properties": {
+            "legal_person_name": {
+                "description": "Official current legal person name as registered in the business register.",
+                "type": "string"
+            },
+            "legal_person_id": {
+                "description": "Unique id for organisations in EUID structure",
+                "type": "string"
+            }
+        },
+        "required": [
+            "legal_person_name",
+            "legal_person_id"
+        ]
+    },
+    "signatory_rights": {
+        "description": "Information about the person and its signatory right about the legal entity",
+        "type": "array",
+        "items": {
+            "oneOf": [
+                {
+                    "$ref": "#/$defs/signatory_rights.held_by_person"
+                },
+                {
+                    "$ref": "#/$defs/signatory_rights.Held_by_legal_person"
+                }
+            ]
+        },
+        "required": [
+            "legal_entity",
+            "signatory_rights"
+        ]
+    },
+    "credential_status": {
+        "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
+        "type": "object",
+        "properties": {
+            "id": {
+                "description": "Exact identity for the credential status",
+                "type": "string",
+                "format": "uri"
+            },
+            "type": {
+                "description": "Defines the revocation type extension",
+                "type": "string"
+            }
+        },
+        "required": [
+            "id",
+            "type"
+        ]
+    },
+    "credential_schema": {
+        "description": "One or more schemas that validate the Verifiable Credential.",
+        "anyOf": [
+            {
+                "$ref": "#/$defs/credential_schema"
+            },
+            {
+                "type": "array",
+                "items": {
+                    "$ref": "#/$defs/credential_schema"
+                }
+            }
+        ]
+    },
+    "required": [
+        "credential_subject",
+        "credential_status",
+        "credential_schema"
+    ],
+    "$defs": {
+        "credential_schema": {
+            "description": "Contains information about the credential schema on which the issued credential is based",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "References the credential schema stored on the Trusted Schemas Registry (TSR) on which the Verifiable Authorisation is based on",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "type": {
+                    "description": "Defines credential schema type",
+                    "type": "string",
+                    "enum": [
+                        "FullJsonSchemaValidator2021"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ]
+        },
+        "signatory_rights.held_by_person": {
+            "description": "Details about the signatory of the company and his right if incarnated by a physical person",
+            "type": "object",
+            "properties": {
+                "full_name": {
+                    "description": "Full name of the physical person representing the company ",
+                    "type": "string"
+                },
+                "date_of_birth": {
+                    "description": "Date of birth of the physical person representing the company",
+                    "type": "string",
+                    "format": "date"
+                },
+                "nationality": {
+                    "description": "Nationality of the physical person representing the company",
+                    "type": "string"
+                },
+                "signatory_rule": {
+                    "description": "Information if the signatory can engage the company alone or jointly",
+                    "type": "string",
+                    "enum": [
+                        "alone"
+                    ]
+                },
+                "post": {
+                    "description": "Role of the person",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "description": " National code of the post of the person",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Name of the post of the person as registered",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ]
+                }
+            },
+            "required": [
+                "full_name",
+                "date_of_birth",
+                "signatory_rule"
+            ]
+        },
+        "signatory_rights.Held_by_legal_person": {
+            "description": "Details about the representative of the company and its right if incarnated by a legal person",
+            "type": "object",
+            "properties": {
+                "legal_person_name": {
+                    "description": "Official current legal person name as registered in the business register.",
+                    "type": "string"
+                },
+                "legal_person_id": {
+                    "description": "Unique id for organisations in EUID structure",
+                    "type": "string"
+                }
+            },
+            "signatory_rule": {
+                "description": "Information if the signatory can engage the company alone or jointly",
+                "type": "string",
+                "enum": [
+                    "alone"
+                ]
+            },
+            "post": {
+                "description": "Role of the person",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "description": "Code of the post of the person",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the post of the person as registered",
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            }
+        },
+        "required": [
+            "legal_person_name",
+            "legal_person_id",
+            "signatory_rule"
+        ]
+    }
+}
