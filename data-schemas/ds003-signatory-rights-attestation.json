@@ -8,24 +8,19 @@
       "$ref": "https://raw.githubusercontent.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/refs/heads/main/data-schemas/common/ds004-legal-person-identification-data.json"
     }
   ],
+  "properties": {
     "credential_subject": {
       "description": "Attributes describing the legal representation of a legal entity",
       "type": "object",
       "properties": {
         "legal_person_name": {
-              "description": "Official current legal person name as registered in the business register.",
-              "type": "string"
-            },
-            "legal_person_id": {
-              "description": "Unique id for organisations in EUID structure",
-              "type": "string"
-            }
-          },
-          "required": [
-            "legal_person_name",
-            "legal_person_id"
-          ]
-        },   
+          "description": "Official current legal person name as registered in the business register.",
+          "type": "string"
+        },
+        "legal_person_id": {
+          "description": "Unique id for organisations in EUID structure",
+          "type": "string"
+        },
         "signatory_rights": {
           "description": "Information about the person and its signatory right about the legal entity",
           "type": "array",
@@ -42,7 +37,8 @@
         }
       },
       "required": [
-        "legal_entity",
+        "legal_person_name",
+        "legal_person_id",
         "signatory_rights"
       ]
     },
@@ -83,8 +79,7 @@
   "required": [
     "credential_subject",
     "credential_status",
-    "credential_schema",
-
+    "credential_schema"
   ],
   "$defs": {
     "credential_schema": {
@@ -127,12 +122,12 @@
           "type": "string"
         },
         "signatory_rule": {
-              "description": "Information if the signatory can engage the company alone or jointly",
-              "type": "string",
-              "enum": [
-                "alone"
-              ]
-            },
+          "description": "Information if the signatory can engage the company alone or jointly",
+          "type": "string",
+          "enum": [
+            "alone"
+          ]
+        },
         "post": {
           "description": "Role of the person",
           "type": "array",
@@ -147,11 +142,11 @@
                 "description": "Name of the post of the person as registered",
                 "type": "string"
               }
-            }
-          },
-          "required": [
-            "name"
-          ]
+            },
+            "required": [
+              "name"
+            ]
+          }
         }
       },
       "required": [
@@ -165,20 +160,19 @@
       "type": "object",
       "properties": {
         "legal_person_name": {
-              "description": "Official current legal person name as registered in the business register.",
-              "type": "string"
-            },
-            "legal_person_id": {
-              "description": "Unique id for organisations in EUID structure",
-              "type": "string"
-            },
+          "description": "Official current legal person name as registered in the business register.",
+          "type": "string"
+        },
+        "legal_person_id": {
+          "description": "Unique id for organisations in EUID structure",
+          "type": "string"
         },
         "signatory_rule": {
           "description": "Information if the signatory can engage the company alone or jointly",
           "type": "string",
           "enum": [
             "alone"
-            ]
+          ]
         },
         "post": {
           "description": "Role of the person",
@@ -194,12 +188,12 @@
                 "description": "Name of the post of the person as registered",
                 "type": "string"
               }
-            }
-          },
-          "required": [
-            "name"
-          ]
+            },
+            "required": [
+              "name"
+            ]
           }
+        }
       },
       "required": [
         "legal_person_name",
