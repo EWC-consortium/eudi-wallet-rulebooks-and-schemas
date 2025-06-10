@@ -110,9 +110,9 @@ This table contains the name of the attribute, its description, and whether the 
 | admin_unit_level_2 | The name of a secondary level/region of the address, typically a county, state, or other area that encompasses localities. | No |
 | registration_date | Date of company registration. | Yes |
 | share_capital | Amount of the subscribed capital with currency. | No |
-| legal_entity_status | Status of the company as defined in national law and recorded in the national register. | Yes |
-| legal_entity_activity | Main activity or activities of the company, expressed using the NACE (Statistical Classification of Economic Activities). | Yes |
-| legal_entity_duration | Duration of the company, if limited. | No |
+| legal_person_status | Status of the company as defined in national law and recorded in the national register. | Yes |
+| legal_person_activity | Main activity or activities of the company, expressed using the NACE (Statistical Classification of Economic Activities). | Yes |
+| legal_person_duration | Duration of the company, if limited. | No |
 | contact_point | Correspondence address of the company, such as email or postal address (full or partial). | No |
 | contact_email | Details of the company email address. | No |
 | contact_page | Details of the company website. | No |
