@@ -1,0 +1,70 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "EWC - Payment Data Confirmation",
+    "description": "Schema for Payment Data Confirmation in EWC RFC 008",
+    "type": "object",
+    "properties": {
+        "payment_data": {
+            "type": "object",
+            "description": "An object related to payment transactions.",
+            "required": [
+                "payee",
+                "currency_amount"
+            ],
+            "properties": {
+                "payee": {
+                    "type": "string",
+                    "description": "The name of the payee to whom the payment is being made."
+                },
+                "currency_amount": {
+                    "type": "object",
+                    "description": "An object conforming to the PaymentCurrencyAmount dictionary specification.",
+                    "required": [
+                        "currency",
+                        "value"
+                    ],
+                    "properties": {
+                        "currency": {
+                            "type": "string",
+                            "pattern": "^[A-Z]{3}$",
+                            "description": "A well-formed 3-letter alphabetic currency code, e.g. EUR."
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "^-?\\d+(?:.\\d{1,2})?$",
+                            "description": "A valid decimal monetary value containing a monetary amount, e.g. 23.50."
+                        }
+                    }
+                },
+                "recurring_schedule": {
+                    "type": "object",
+                    "description": "If present, it indicates a recurring payment schedule.",
+                    "required": [
+                        "start_date",
+                        "frequency"
+                    ],
+                    "properties": {
+                        "start_date": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "The date (ISO 8601) when the series of recurring payments starts."
+                        },
+                        "expiry_date": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "The date (ISO 8601) when the series of recurring payments ends, if agreed."
+                        },
+                        "frequency": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "The minimum number of days between single occurrences of the recurring schedule."
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "payment_data"
+    ]
+}

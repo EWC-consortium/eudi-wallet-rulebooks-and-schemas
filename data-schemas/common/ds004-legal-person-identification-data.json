@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "EWC - Legal PID",
+    "description": "Schema for Legal PID -  EWC WP3",
+    "type": "object",
+    "properties": {
+        "issuing_authority": {
+            "description": "Name of issuer from the MS that issued the ODI instance",
+            "type": "string"
+        },
+        "issuing_authority_id": {
+            "description": "ODI Id of the issuing authority. (Business register identifier for BRIS)",
+            "type": "string"
+        },
+        "issuing_country": {
+            "description": "Alpha-2 country code, as defined in ISO 3166-1, of the issuing country or territory.",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+        },
+        "issuing_jurisdiction": {
+            "description": "As defined in ISO 3166-2:2020, of the issuing country or territory.",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 6
+        },
+        "issuance_date": {
+            "description": "Date and possibly time of issuance",
+            "type": "string",
+            "format": "date-time"
+        },
+        "expiry_date": {
+            "description": "Date and possibly time of ODI expiration",
+            "type": "string",
+            "format": "date-time"
+        },
+        "authentic_source_id": {
+            "description": "ODI Id of the issuing authority. (Business register identifier for BRIS)",
+            "type": "string"
+        },
+        "authentic_source_name": {
+            "description": "Name of issuer from the MS that issued the ODI instance",
+            "type": "string"
+        }
+    },
+    "required": [
+        "issuing_authority",
+        "issuing_authority_id",
+        "issuing_country",
+        "issuance_date",
+        "expiry_date",
+        "authentic_source_id",
+        "authentic_source_name"
+    ]
+}

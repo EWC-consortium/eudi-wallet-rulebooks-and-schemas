@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EWC - Ultimate Beneficial Owner",
+  "description": "Schema for Ultimate Beneficial Owner - EWC WP3",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas/refs/heads/main/data-schemas/common/ds004-legal-person-identification-data.json"
+    }
+  ],
+    "credential_subject": {
+      "description": "Attributes about the legal person and the beneficial ownership.",
+      "type": "object",
+      "properties": {
+        "legal_person": {
+          "description": "Attributes about the legal person.",
+          "type": "object",
+          "properties": {
+            "legal_person_name": {
+              "description": "Official current legal person name as registered in the business register.",
+              "type": "string"
+            },
+            "legal_person_id": {
+              "description": "Unique ID for organisations in EUID structure.",
+              "type": "string"
+            },
+            "legal_form_type": {
+              "description": "Legal form of the company.",
+              "type": "string"
+            },
+            "registered_address": {
+              "description": "The address of the company.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "legal_person_name",
+            "legal_person_id",
+            "legal_form_type",
+            "registered_address"
+          ]
+        },
+        "ultimate_beneficial_owner": {
+          "description": "Details of the Ultimate Beneficial Owner(s) of the company.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "natural_person_details": {
+                "description": "Details of the natural person representing the UBO.",
+                "type": "object",
+                "properties": {
+                  "family_name": {
+                    "description": "Family name of the natural person representing the UBO.",
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "description": "First name of the natural person representing the UBO.",
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "description": "Unique identifier for the natural person representing the UBO.",
+                    "type": "string"
+                  },
+                  "birth_date": {
+                    "description": "Date of birth of the natural person representing the UBO.",
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "postal_address": {
+                    "description": "Postal address of the natural person representing the UBO.",
+                    "type": "string"
+                  },
+                  "tax_domicile": {
+                    "description": "Country of taxation of the natural person representing the UBO in the ISO 3166-1 alpha-3 standard.",
+                    "type": "string"
+                  },
+                  "is_alive": {
+                    "description": "Indicates if the natural person representing the UBO is alive.",
+                    "type": "boolean"
+                  },
+                  "nationality": {
+                    "description": "Citizenship of the natural person representing the UBO.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "family_name",
+                  "first_name",
+                  "birth_date",
+                  "postal_address"
+                ]
+              },
+              "ownership_details": {
+                "description": "Details of the ownership of the UBO on the company.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nature_of_control": {
+                      "description": "Nature of the interest held by the UBO in the company.",
+                      "type": "string",
+                      "enum": [
+                        "voting_rights",
+                        "control_through_ownership",
+                        "senior_management_position",
+                        "other_means_of_control"
+                      ]
+                    },
+                    "ownership_type": {
+                      "description": "The type of ownership held by the UBO (e.g., direct, indirect).",
+                      "type:"string",
+                      "enum": ["direct", "indirect", "both"]
+                    },
+                    "ownership_percentage": {
+                      "description": "The percentage of ownership held by the UBO in the company. Must be between 0 and 100, expressed in number or in brackets.",
+                      "type": "object",
+                      "properties":{
+                        "myAttribute":{
+                          "oneOf":[
+                            {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 100
+                            },
+                            {
+                              "type:"string",
+                              "enum": ["0-25", "25-50", "50-75","75-100"]
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "registrable_date": {
+                      "description": "Date when the UBO’s interest was registered.",
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "inactive_date": {
+                      "description": "Date when the UBO’s interest became inactive (if applicable).",
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "last_change_date": {
+                      "description": "Date when the UBO’s interest was last changed.",
+                      "type": "string",
+                      "format": "date"
+                    }
+                  },
+                  "required": [
+                    "nature_of_control",
+                    "ownership_type",
+                    "ownership_percentage",
+                    "registrable_date"
+                  ]
+                }
+              }
+            },
+            "required": ["natural_person_details", "ownership_details"]
+          }
+        }
+      },
+      "required": ["legal_person", "ultimate_beneficial_owner"]
+    },
+    "credential-status": {
+      "description": "Defines suspension and/or revocation details for the issued credential. Further redefined by the type extension",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Exact identity for the credential status",
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "description": "Defines the revocation type extension",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    },
+    "credential_schema": {
+      "description": "One or more schemas that validate the Verifiable Credential.",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/credential_schema"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/credential_schema"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "credential_subject",
+    "credential_status",
+    "credential_schema"
+  ],
+  "$defs": {
+    "credential_schema": {
+      "description": "Contains information about the credential schema on which the issued credential is based",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "References the credential schema stored on the Trusted Schemas Registry (TSR) on which the Verifiable Authorisation is based on",
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "description": "Defines credential schema type",
+          "type": "string",
+          "enum": [
+            "FullJsonSchemaValidator2021"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  }
+}
