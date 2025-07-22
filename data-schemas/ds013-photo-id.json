@@ -1,81 +1,358 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://domain.com/european-student-card.json",
-  "title": "European Student Card",
-  "description": "Verifiable Credential for a European Student Card (ESC).",
-  "type": "object",
-  "required": [
-    "iss",
-    "iat",
-    "vct",
-    "cardNumber",
-    "issuedAt",
-    "expiresAt",
-    "displayName",
-    "issuer",
-    "fullName",
-    "qrCode"
-  ],
-  "properties": {
-    "cardNumber": {
-      "title": "Card Number",
-      "type": "string",
-      "description": "Unique European Student Card number."
-    },
-    "issuedAt": {
-      "title": "Issued At",
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when the card was issued."
-    },
-    "expiresAt": {
-      "title": "Expires At",
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when the card expires."
-    },
-    "displayName": {
-      "title": "Student Name (Display)",
-      "type": "string",
-      "description": "Preferred display name of the student."
-    },
-    "fullName": {
-      "title": "Student Full Name",
-      "type": "string",
-      "description": "Full legal name of the student."
-    },
-    "issuer": {
-      "title": "Card Issuer",
-      "type": "string",
-      "description": "Name of the institution issuing the card."
-    },
-    "qrCode": {
-      "title": "QR Code",
-      "type": "string",
-      "description": "QR code payload or Data URI encoding."
-    },
-
-    "iss": {
-      "title": "Issuer",
-      "type": "string",
-      "format": "uri",
-      "description": "URI identifying the credential issuer."
-    },
-    "iat": {
-      "title": "Issued At (JWT)",
-      "type": "integer",
-      "description": "NumericDate per RFC 7519 (seconds since epoch)."
-    },
-    "exp": {
-      "title": "Expiration (JWT)",
-      "type": "integer",
-      "description": "NumericDate when the JWT expires."
-    },
-    "vct": {
-      "title": "Verifiable Credential Type",
-      "type": "string",
-      "const": "eu.europa.ec.eudi.esc.1"
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://domain.com/photoid.json",
+    "title": "Photo ID",
+    "description": "Verifiable Credential for a Photo ID.",
+    "type": "object",
+    "required": ["iso23220", "photoid", "iss", "iat", "vct"],
+    "properties": {
+      "iso23220": {
+        "title": "ISO/IEC 23220-1",
+        "description": "ISO/IEC 23220-1 claims",
+        "type": "object",
+        "required": [
+          "family_name_unicode",
+          "given_name_unicode",
+          "birth_date",
+          "portrait",
+          "issue_date",
+          "expiry_date",
+          "issuing_authority_unicode",
+          "issuing_country",
+          "age_over_18"
+        ],
+        "properties": {
+          "family_name_unicode": {
+            "title": "Family Name",
+            "description": "Unicode-encoded family name of the document holder.",
+            "type": "string"
+          },
+          "given_name_unicode": {
+            "title": "Given Name",
+            "description": "Unicode-encoded first name of the document holder.",
+            "type": "string"
+          },
+          "birth_date": {
+            "title": "Birth Date",
+            "description": "Date of birth in ISO 8601 format.",
+            "type": "string",
+            "format": "date"
+          },
+          "portrait": {
+            "title": "Portrait",
+            "description": "A portrait image encoded as a Data URI.",
+            "type": "string",
+            "pattern": "^data:image\\/(png|jpeg);base64,[a-zA-Z0-9+/=]+$"
+          },
+          "issue_date": {
+            "title": "Issue Date",
+            "description": "Date when the document was issued.",
+            "type": "string",
+            "format": "date"
+          },
+          "expiry_date": {
+            "title": "Expiry Date",
+            "description": "The date when the document expires.",
+            "type": "string",
+            "format": "date"
+          },
+          "issuing_authority_unicode": {
+            "title": "Issuing Authority",
+            "description": "The authority responsible for issuing the document.",
+            "type": "string"
+          },
+          "issuing_country": {
+            "title": "Issuing Country",
+            "description": "The country issuing the document.",
+            "type": "string"
+          },
+          "sex": {
+            "title": "Sex",
+            "description": "Holder's sex using values as defined in ISO/IEC 5218. 0= Not known, 1 = Male, 2 = Female, 9 = non-applicable",
+            "type": "integer"
+          },
+          "nationality": {
+            "title": "Nationality",
+            "description": "Nationality of the holder as two letter country code (alpha-2 code) or three letter code alpha-3 code) defined in ISO 3166-1.",
+            "type": "string"
+          },
+          "document_number": {
+            "title": "Document Number",
+            "description": "Unique number identifying the document.",
+            "type": "string"
+          },
+          "name_at_birth": {
+            "title": "Name at Birth",
+            "description": "The name of the individual at birth.",
+            "type": "string"
+          },
+          "birthplace": {
+            "title": "Birthplace",
+            "description": "Place of birth (country and municipality or state/province).",
+            "type": "string"
+          },
+          "portrait_capture_date": {
+            "title": "Portrait Capture Date",
+            "description": "Date when the portrait was taken.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "resident_address_unicode": {
+            "title": "Resident Address",
+            "description": "Unicode-encoded resident address of the individual.",
+            "type": "string"
+          },
+          "resident_city_unicode": {
+            "title": "Resident City",
+            "description": "Unicode-encoded city of residence.",
+            "type": "string"
+          },
+          "resident_postal_code": {
+            "title": "Resident Postal Code",
+            "description": "Postal code of the residence.",
+            "type": "string"
+          },
+          "resident_country": {
+            "title": "Resident Country",
+            "description": "Country of residence.",
+            "type": "string"
+          },
+          "age_over_18": {
+            "title": "Age Over 18",
+            "description": "Indicates if the individual is over 18.",
+            "type": "boolean"
+          },
+          "age_in_years": {
+            "title": "Age in Years",
+            "description": "The age of the individual in years.",
+            "type": "integer"
+          },
+          "age_birth_year": {
+            "title": "Birth Year",
+            "description": "The birth year of the individual.",
+            "type": "integer"
+          },
+          "family_name_latin1": {
+            "title": "Family Name",
+            "description": "latin1-encoded family name of the document holder.",
+            "type": "string"
+          },
+          "given_name_latin1": {
+            "title": "Given Name",
+            "description": "latin1-encoded first name of the document holder.",
+            "type": "string"
+          }
+        }
+      },
+      "photoid": {
+        "title": "Photo ID",
+        "description": "org.iso.23220.photoid.1 claims",
+        "type": "object",
+        "properties": {
+          "person_id": {
+            "title": "Person ID",
+            "description": "Unique personal identifier.",
+            "type": "string"
+          },
+          "birth_country": {
+            "title": "Birth Country",
+            "description": "Country where the individual was born.",
+            "type": "string"
+          },
+          "birth_state": {
+            "title": "Birth State",
+            "description": "State or province where the individual was born.",
+            "type": "string"
+          },
+          "birth_city": {
+            "title": "Birth City",
+            "description": "City where the individual was born.",
+            "type": "string"
+          },
+          "administrative_number": {
+            "title": "Administrative Number",
+            "description": "A number assigned by the Photo ID holder issuer for audit control or other purposes.",
+            "type": "string"
+          },
+          "resident_street": {
+            "title": "Street",
+            "description": "Street address of the individual's residence.",
+            "type": "string"
+          },
+          "resident_house_number": {
+            "title": "House Number",
+            "description": "House number of the individual's residence.",
+            "type": "string"
+          },
+          "travel_document_number": {
+            "title": "Travel Document Number",
+            "description": "Number of the travel document (e.g., passport number).",
+            "type": "string"
+          },
+          "resident_state": {
+            "title": "Resident State",
+            "description": "The state/province/district where the Photo ID holder lives.",
+            "type": "string"
+          }
+        }
+      },
+      "dtc": {
+        "title": "DTC",
+        "description": "DTC",
+        "type": "object",
+        "required": [
+          "dtc_dg1",
+          "dtc_dg2",
+          "dtc_sod"
+        ],
+        "properties": {
+          "dtc_version": {
+            "title": "DTC Version",
+            "description": "Version of the DTC definition",
+            "type": "string"
+          },
+          "dtc_dg1": {
+            "title": "Data Group 1",
+            "description": "The full MRZ data for DTC Data Group 1, encoded as a string.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg2": {
+            "title": "Data Group 2",
+            "description": "The biometric data for DTC Data Group 2 (e.g., facial image).",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg3": {
+            "title": "Data Group 3",
+            "description": "Binary data for DTC Data Group 3.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg4": {
+            "title": "Data Group 4",
+            "description": "Binary data for DTC Data Group 4.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg5": {
+            "title": "Data Group 5",
+            "description": "Binary data for DTC Data Group 5.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg6": {
+            "title": "Data Group 6",
+            "description": "Binary data for DTC Data Group 6.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg7": {
+            "title": "Data Group 7",
+            "description": "Binary data for DTC Data Group 7.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg8": {
+            "title": "Data Group 8",
+            "description": "Binary data for DTC Data Group 8.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg9": {
+            "title": "Data Group 9",
+            "description": "Binary data for DTC Data Group 9.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg10": {
+            "title": "Data Group 10",
+            "description": "Binary data for DTC Data Group 10.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg11": {
+            "title": "Data Group 11",
+            "description": "Binary data for DTC Data Group 11.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg12": {
+            "title": "Data Group 12",
+            "description": "Binary data for DTC Data Group 12.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg13": {
+            "title": "Data Group 13",
+            "description": "Binary data for DTC Data Group 13.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg14": {
+            "title": "Data Group 14",
+            "description": "Binary data for DTC Data Group 14.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg15": {
+            "title": "Data Group 15",
+            "description": "Binary data for DTC Data Group 15.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_dg16": {
+            "title": "Data Group 16",
+            "description": "Binary data for DTC Data Group 16.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dtc_sod": {
+            "title": "Security Object Document",
+            "description": "The encoded Security Object Document (SOD) for DTC, which contains the digital signature and other cryptographic information.",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          },
+          "dg_content_info": {
+            "title": "Content Info",
+            "description": "Binary data of the DTCContentInfo",
+            "type": "string",
+            "format": "binary",
+            "contentEncoding": "base64"
+          }
+        }
+      },
+      "iss": {
+        "type": "string",
+        "format": "uri"
+      },
+      "iat": {
+        "type": "integer"
+      },
+      "exp": {
+        "type": "integer"
+      },
+      "vct": {
+        "type": "string",
+        "const": "eu.europa.ec.eudi.photoid.1"
+      }
     }
-  },
-  "additionalProperties": false
-}
+  }
+  
