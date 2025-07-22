@@ -1,0 +1,82 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://domain.com/european-student-card.json",
+    "title": "European Student Card",
+    "description": "Verifiable Credential for a European Student Card (ESC).",
+    "type": "object",
+    "required": [
+      "iss",
+      "iat",
+      "vct",
+      "cardNumber",
+      "issuedAt",
+      "expiresAt",
+      "displayName",
+      "issuer",
+      "fullName",
+      "qrCode"
+    ],
+    "properties": {
+      "cardNumber": {
+        "title": "Card Number",
+        "type": "string",
+        "description": "Unique European Student Card number."
+      },
+      "issuedAt": {
+        "title": "Issued At",
+        "type": "string",
+        "format": "date-time",
+        "description": "ISO 8601 timestamp when the card was issued."
+      },
+      "expiresAt": {
+        "title": "Expires At",
+        "type": "string",
+        "format": "date-time",
+        "description": "ISO 8601 timestamp when the card expires."
+      },
+      "displayName": {
+        "title": "Student Name (Display)",
+        "type": "string",
+        "description": "Preferred display name of the student."
+      },
+      "fullName": {
+        "title": "Student Full Name",
+        "type": "string",
+        "description": "Full legal name of the student."
+      },
+      "issuer": {
+        "title": "Card Issuer",
+        "type": "string",
+        "description": "Name of the institution issuing the card."
+      },
+      "qrCode": {
+        "title": "QR Code",
+        "type": "string",
+        "description": "QR code payload or Data URI encoding."
+      },
+  
+      "iss": {
+        "title": "Issuer",
+        "type": "string",
+        "format": "uri",
+        "description": "URI identifying the credential issuer."
+      },
+      "iat": {
+        "title": "Issued At (JWT)",
+        "type": "integer",
+        "description": "NumericDate per RFC 7519 (seconds since epoch)."
+      },
+      "exp": {
+        "title": "Expiration (JWT)",
+        "type": "integer",
+        "description": "NumericDate when the JWT expires."
+      },
+      "vct": {
+        "title": "Verifiable Credential Type",
+        "type": "string",
+        "const": "eu.europa.ec.eudi.esc.1"
+      }
+    },
+    "additionalProperties": false
+  }
+  
